@@ -1,8 +1,7 @@
-import avatarDefault from "../../../../public/assests/avatar.png";
+
 import { useSelector } from "react-redux";
-import Link from "next/link";
 import { useTheme } from "next-themes";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const AdminSidebar = () => {
   const { user } = useSelector((state) => state.auth);
