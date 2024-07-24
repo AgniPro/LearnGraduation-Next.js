@@ -23,7 +23,7 @@ const Header = () => {
       const authCookie = Cookies.get('is_auth')
       setIsAuth(authCookie)
       if (data && isSuccess) {
-        setUser(data.user)
+        setUser(data.user);
       }
       if (error) {
         setIsAuth(false);
@@ -195,7 +195,7 @@ const Header = () => {
                                         </div>
                                         <div className="prfC">
                                             <div className="sImg">
-                                                <Link title="profile" href={user.name ? "/profile" : ""} onClick={() => { isAuthenticated ? "" : (setOpen(true), setRoute("Login"), setAuthCheckbox(true)), document.getElementById('offPrf').checked = false }}>
+                                                <Link title={user.name ? "Proflie" : "Login"} href={user.name ? "/profile" : ""} onClick={() => { isAuthenticated ? "" : (setOpen(true), setRoute("Login"), setAuthCheckbox(true)), document.getElementById('offPrf').checked = false }}>
                                                     <div
                                                         className="im lazy loaded"
                                                         data-style={`background-image: url(${user.avatar ? user.avatar?.url : avatarDefault.src})`}
@@ -230,10 +230,10 @@ const Header = () => {
                                                                 <dt className="sDt">
                                                                     <Link
                                                                         className="l extL"
-                                                                        title="Compose"
-                                                                        href={"/admin/compose"} onClick={() => document.getElementById('offPrf').checked = false}
+                                                                        title="Create Post"
+                                                                        href={"/admin/create-post"} onClick={() => document.getElementById('offPrf').checked = false}
                                                                     >
-                                                                        <bdi>Compose</bdi>
+                                                                        <bdi>Create Post</bdi>
                                                                     </Link>
                                                                 </dt>
                                                             </dl>
@@ -311,7 +311,7 @@ const Header = () => {
                                                     </dl>
                                                     <br />
                                                     <dl className="sInf">
-                                                        <dt className="sTxt">No account?</dt>
+                                                        <dt className="sTxt">No account ?</dt>
                                                         <dt className="sDt">
                                                             <Link
                                                                 className="l extL"
@@ -343,6 +343,7 @@ const Header = () => {
                                                 setRoute={setRoute}
                                                 route={route}
                                                 component={SignUp}
+                                                setOpen={setOpen}
                                             />
                                         )}
                                     </>
@@ -366,6 +367,7 @@ const Header = () => {
                                             <CustomModal
                                                 setRoute={setRoute}
                                                 route={route}
+                                                setOpen={setOpen}
                                                 component={Verification}
                                             />
                                         )}

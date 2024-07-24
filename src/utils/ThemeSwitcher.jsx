@@ -4,9 +4,24 @@ import { useEffect } from "react"
 export default function ThemeSwitcher() {
 
   useEffect(() => {
-    "dark" === localStorage.getItem("theme") ? document.querySelector("#mainCont").classList.add(
-      "drK") : document.querySelector("#mainCont").classList.remove("drK")
-  }, [])
+    if (typeof window !== "undefined") {
+      const mode = localStorage.getItem("mode");
+      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const mainCont = document.querySelector("#mainCont");
+      if (mainCont) {
+        if (mode) {
+          if (mode === "darkmode") {
+            mainCont.classList.add("drK");
+          } else {
+            mainCont.classList.remove("drK");
+          }
+        } else if (prefersDarkMode) {
+          mainCont.classList.add("drK");
+          localStorage.setItem("mode", "darkmode");
+        }
+      }
+    }
+  }, []);
 
   const setTheme= ()=>{
     localStorage.setItem("mode", "darkmode" === localStorage.getItem("mode") ? "light" : "darkmode"),

@@ -1,19 +1,19 @@
 'use client';
-import { api, date } from "@/app/Contexts";
+import { api,date } from "@/app/Contexts";
 import Link from "next/link";
-import React, { useState } from "react";
+import React,{useState} from "react";   
 import { CardLoading } from "../LayoutComponents/CardLodaing";
 import Like from "../LayoutComponents/Like";
 
 function LattestPost(props) {
     const [isLoading, setIsLoading] = useState(false);
-    const [homedata, setHomedata] = useState(props.postData || []);
+    const [homedata, setHomedata] = useState(props.postData || setIsLoading(true));
     const [loadbtn, setLoadbtn] = useState("Load more posts");
     if (props.postData === undefined) {
         setIsLoading(true);
     }
     const homecontent = async (skip) => {
-        const response = await fetch(api+"get-posts?skip=" + skip, {
+        const response = await fetch(api+"/api/get-posts?skip=" + skip, {
             credentials: "include",
             headers: {
                 "Content-Type": "application/json",
@@ -31,30 +31,12 @@ function LattestPost(props) {
         }
     };
 
-    const [pinnedPost, ...latestPosts] = homedata;
-
     const handlescroll = () => {
         const skip = homedata.length;
         if (loadbtn === "No More Post") {
             return;
         }
         homecontent(skip);
-    };
-
-    const setlike = (likedPost) => {
-        const useremail = props.user + "@gmail.com";
-        setHomedata(prevData =>
-            prevData.map(post =>
-                post._id === likedPost
-                    ? {
-                        ...post,
-                        likes: post.likes.includes(useremail)
-                            ? post.likes.filter(email => email !== useremail)
-                            : [...post.likes, useremail],
-                    }
-                    : post
-            )
-        );
     };
 
     return (
@@ -64,7 +46,7 @@ function LattestPost(props) {
             </div>
             {isLoading ? <CardLoading /> : <>
                 <div className="blogPts">
-                    {latestPosts?.map((item) => {
+                    {homedata?.map((item) => {
                         const { pubinfo, month, year } = date(item.createdAt, item.updatedAt);
                         return (
                             <article key={item._id} className="ntry">
@@ -74,7 +56,7 @@ function LattestPost(props) {
                                     </Link>
 
                                     <div className="iFxd">
-                                        <Like postcontent={item} setlike={setlike} />
+                                        <Like postId={item._id} postLikes={item.likes}/>
 
                                         {item.comments.length>0 ?
                                             <Link aria-label="Comments" className="cmnt" data-text={item.comments.length} href={"/p/" + item.url + "#comments"} role="button">

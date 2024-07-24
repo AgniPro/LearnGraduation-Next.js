@@ -1,30 +1,37 @@
 import { NextResponse } from 'next/server'
 
-// Array of paths to check against
-const authPaths = ['/account/login', '/account/register'];
+// Paths that require authentication
+const authPaths = ['/profile','/profile/change-password'];
+
+// Admin-only paths
+const adminPaths = ['/admin/dashboard', '/admin', '/admin/create-post','/admin/create-course'];
 
 export async function middleware(request) {
   try {
-    const isAuthenticated = request.cookies.get('is_auth')?.value
+    const isAuthenticated = request.cookies.get('is_auth')?.value;
     const path = request.nextUrl.pathname;
-
-    if (isAuthenticated) {
-      if (authPaths.includes(path)) {
-        return NextResponse.redirect(new URL('/user/profile', request.url));
-      }
+    // Redirect authenticated users away from login/register to their profile
+    if (!isAuthenticated && authPaths.includes(path)) {
+      return NextResponse.redirect(new URL('/', request.url));
     }
 
-    if (!isAuthenticated && !authPaths.includes(path)) {
-      return NextResponse.redirect(new URL('/account/login', request.url));
+    // Redirect unauthenticated users trying to access protected paths to login
+    if (!isAuthenticated && (authPaths.includes(path) || adminPaths.includes(path))) {
+      return NextResponse.redirect(new URL('/', request.url));
     }
-    return NextResponse.next()
+
+    // Redirect non-admin users trying to access admin-only paths
+    if (isAuthenticated && adminPaths.includes(path) && isAuthenticated !== '1415914') {
+      return NextResponse.redirect(new URL('/', request.url)); // Redirect to an unauthorized page or dashboard
+    }
+
+    return NextResponse.next();
   } catch (error) {
     console.error('Error occurred while checking authentication:', error);
-    // Handle the error, maybe return a response with 500 status code
     return NextResponse.error();
   }
 }
 
 export const config = {
-  matcher: ['/user/:path*', '/account/login', '/account/register']
+  matcher: ['/:path*', '/admin/:path*']
 }

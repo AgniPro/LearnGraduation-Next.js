@@ -1,6 +1,7 @@
 import React from "react";
 import Toc from "./Toc";
 import PopularPost from "./PopularPost";
+import BookMark from "../Svg/BookMark";
 
 export default function Sidebar(){
 
@@ -20,12 +21,7 @@ export default function Sidebar(){
                     <span className="lbT">Under Graduate</span>
                     <span className="lbR">
                       <span className="lbC" data-text={36} />
-                      <svg className="line" viewBox="0 0 24 24">
-                        <g transform="translate(4.500000, 2.500000)">
-                          <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                          </path>
-                        </g>
-                      </svg>
+                      <BookMark />
                     </span>
                   </a>
                 </li>
@@ -34,12 +30,7 @@ export default function Sidebar(){
                     <span className="lbT">Bsc</span>
                     <span className="lbR">
                       <span className="lbC" data-text={31} />
-                      <svg className="line" viewBox="0 0 24 24">
-                        <g transform="translate(4.500000, 2.500000)">
-                          <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                          </path>
-                        </g>
-                      </svg>
+                      <BookMark />
                     </span>
                   </a>
                 </li>
@@ -48,12 +39,7 @@ export default function Sidebar(){
                     <span className="lbT">Mathematics</span>
                     <span className="lbR">
                       <span className="lbC" data-text={30} />
-                      <svg className="line" viewBox="0 0 24 24">
-                        <g transform="translate(4.500000, 2.500000)">
-                          <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                          </path>
-                        </g>
-                      </svg>
+                      <BookMark />
                     </span>
                   </a>
                 </li>
@@ -62,12 +48,7 @@ export default function Sidebar(){
                     <span className="lbT">khel-khel_mein_ganit_seekhen</span>
                     <span className="lbR">
                       <span className="lbC" data-text={26} />
-                      <svg className="line" viewBox="0 0 24 24">
-                        <g transform="translate(4.500000, 2.500000)">
-                          <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                          </path>
-                        </g>
-                      </svg>
+                      <BookMark />
                     </span>
                   </a>
                 </li>
@@ -76,12 +57,7 @@ export default function Sidebar(){
                     <span className="lbT">mathematical tips and trick</span>
                     <span className="lbR">
                       <span className="lbC" data-text={26} />
-                      <svg className="line" viewBox="0 0 24 24">
-                        <g transform="translate(4.500000, 2.500000)">
-                          <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                          </path>
-                        </g>
-                      </svg>
+                      <BookMark />
                     </span>
                   </a>
                 </li>
@@ -90,12 +66,7 @@ export default function Sidebar(){
                     <span className="lbT">Syllabus</span>
                     <span className="lbR">
                       <span className="lbC" data-text={22} />
-                      <svg className="line" viewBox="0 0 24 24">
-                        <g transform="translate(4.500000, 2.500000)">
-                          <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                          </path>
-                        </g>
-                      </svg>
+                      <BookMark />
                     </span>
                   </a>
                 </li>
@@ -108,12 +79,7 @@ export default function Sidebar(){
                       <span className="lbT">Notes</span>
                       <span className="lbR">
                         <span className="lbC" data-text={11} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -122,12 +88,7 @@ export default function Sidebar(){
                       <span className="lbT">graduation</span>
                       <span className="lbR">
                         <span className="lbC" data-text={9} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -136,12 +97,7 @@ export default function Sidebar(){
                       <span className="lbT">Physics</span>
                       <span className="lbR">
                         <span className="lbC" data-text={8} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -150,12 +106,7 @@ export default function Sidebar(){
                       <span className="lbT">English Syllabus</span>
                       <span className="lbR">
                         <span className="lbC" data-text={7} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -164,12 +115,7 @@ export default function Sidebar(){
                       <span className="lbT">e-Book</span>
                       <span className="lbR">
                         <span className="lbC" data-text={7} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -178,12 +124,7 @@ export default function Sidebar(){
                       <span className="lbT">PHYSICS Syllabus</span>
                       <span className="lbR">
                         <span className="lbC" data-text={6} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -192,12 +133,7 @@ export default function Sidebar(){
                       <span className="lbT">JEE- Main &amp; Advanced</span>
                       <span className="lbR">
                         <span className="lbC" data-text={2} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -206,12 +142,7 @@ export default function Sidebar(){
                       <span className="lbT">Nobel</span>
                       <span className="lbR">
                         <span className="lbC" data-text={2} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -220,12 +151,7 @@ export default function Sidebar(){
                       <span className="lbT">BSc previous year question papers</span>
                       <span className="lbR">
                         <span className="lbC" data-text={1} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -234,12 +160,7 @@ export default function Sidebar(){
                       <span className="lbT">Chemistry</span>
                       <span className="lbR">
                         <span className="lbC" data-text={1} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>
@@ -248,12 +169,7 @@ export default function Sidebar(){
                       <span className="lbT">VBU</span>
                       <span className="lbR">
                         <span className="lbC" data-text={1} />
-                        <svg className="line" viewBox="0 0 24 24">
-                          <g transform="translate(4.500000, 2.500000)">
-                            <path d="M7.47024319,0 C1.08324319,0 0.00424318741,0.932 0.00424318741,8.429 C0.00424318741,16.822 -0.152756813,19 1.44324319,19 C3.03824319,19 5.64324319,15.316 7.47024319,15.316 C9.29724319,15.316 11.9022432,19 13.4972432,19 C15.0932432,19 14.9362432,16.822 14.9362432,8.429 C14.9362432,0.932 13.8572432,0 7.47024319,0 Z">
-                            </path>
-                          </g>
-                        </svg>
+                        <BookMark />
                       </span>
                     </a>
                   </li>

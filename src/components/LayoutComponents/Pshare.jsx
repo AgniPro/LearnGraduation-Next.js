@@ -1,5 +1,6 @@
-'use client'
+
 import Link from "next/link";
+import CopyInClipboard from "./CopyInClipboard";
 
 function Pshare(props) {
   return (
@@ -75,17 +76,6 @@ function Pshare(props) {
 export { Pshare };
 
 function Share(props) {
-  function copyFunction() {
-    if (typeof window !== 'undefined') {
-      navigator.clipboard.writeText(props.link)
-        .then(() => {
-          document.getElementById("cpNotif").innerHTML = "<span>Link copied to clipboard!</span>";
-        })
-        .catch(err => {
-          console.error('Failed to copy text: ', err);
-        });
-    }
-  }
   return (
     <div className="shBr fixL">
       <div className="shBri fixLi">
@@ -150,7 +140,7 @@ function Share(props) {
               <div className="cpLb">
                 <svg className="line" viewBox="0 0 24 24"><path d="M13.0601 10.9399C15.3101 13.1899 15.3101 16.8299 13.0601 19.0699C10.8101 21.3099 7.17009 21.3199 4.93009 19.0699C2.69009 16.8199 2.68009 13.1799 4.93009 10.9399" /><path d="M10.59 13.4099C8.24996 11.0699 8.24996 7.26988 10.59 4.91988C12.93 2.56988 16.73 2.57988 19.08 4.91988C21.43 7.25988 21.42 11.0599 19.08 13.4099" /></svg>
                 <input id="getlink"  readOnly="readonly" defaultValue={props.link} />
-                <label htmlFor="getlink" onClick={copyFunction}>Copy</label>
+                <CopyInClipboard/>
               </div>
               <div className="cpLn" id="cpNotif" />
             </div>

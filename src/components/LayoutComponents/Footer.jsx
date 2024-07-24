@@ -1,7 +1,6 @@
-'use client';
 import Link from "next/link";
 
-function Footer(props) {
+function Footer() {
     const currentYear = new Date().getFullYear();
   return (
     <>
@@ -23,7 +22,7 @@ function Footer(props) {
               </span>
             </div>
           </div>
-          <div className="widget TextList" data-version={2} id="TextList88">
+          {/* <div className="widget TextList" data-version={2} id="TextList88">
             <div
               className="toTop tTop"
               data-text="Top"
@@ -35,7 +34,7 @@ function Footer(props) {
                 </g>
               </svg>
             </div>
-          </div>
+          </div> */}
         </div>
       </footer>
     </>

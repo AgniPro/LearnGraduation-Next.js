@@ -1,56 +1,49 @@
-"use client";
-import React from "react";
-import Heading from "../utils/Heading";
-import AdminSidebar from "../components/Admin/sidebar/AdminSidebar";
-import AdminProtected from "../components/hooks/adminProtected";
+import LattestPost from "@/components/Home/LattestPost";
+import { api } from "../Contexts";
 
+async function getPostData() {
+  const res = await fetch(api + '/api/get-posts?skip=0')
+  return res.json()
+}
+const Flower= ()=>{
+return(
+  <svg xmlns="http://www.w3.org/2000/svg" _ngcontent-woo-c43="" width="100%" height="100%" viewBox="0 0 80 80" className="flower ng-star-inserted">
+  <path _ngcontent-woo-c43="" d="M77.1461 39.9994C83.6068 52.0411 78.7255 62.9426 66.2666 66.2653C62.9426 78.7255 52.0411 83.6055 39.9994 77.1461C27.9577 83.6068 17.0561 78.7255 13.7334 66.2666C1.27453 62.9426 -3.60675 52.0411 2.85391 39.9994C-3.60675 27.9577 1.27453 17.0561 13.7334 13.7334C17.0561 1.27453 27.9577 -3.60675 39.9994 2.85391C52.0411 -3.60675 62.9426 1.27453 66.2653 13.7334C78.7255 17.0561 83.6055 27.9577 77.1461 39.9994Z" fill="aquamarine"/>
+  </svg>
+)
+}
 
-const Page= () => {
+const Page = async () => {
+  const postData = await getPostData();
   return (
     <>
-      <AdminProtected>
-        <Heading
-          title="Elearning- Adimn"
-          description="this is admin pannnel disc"
-          keywords="peroc,fdsdf,sdfsdf,sdfdsf"
-        />
-        <AdminSidebar />
-        <div className="w-[70vw] right-[12px] absolute ">
-          <div className="flex justify-between">
-            <h1 className="text-3xl font-bold">Dashboard</h1>
-            <div className="flex">
-              <input
-                type="text"
-                placeholder="Search"
-                className="border-2 border-gray-200 p-2 rounded-md"
-              />
-              <button className="bg-blue-500 text-white p-2 rounded-md ml-2">
-                Search
-              </button>
-            </div>
-          </div>
-          <div className="mt-4">
-            <div className="flex justify-between">
-              <div className="w-1/4 bg-white p-4 rounded-md shadow-md">
-                <h1 className="text-2xl font-bold">Total Users</h1>
-                <p className="text-4xl font-bold">100</p>
+      <div className="blogCont oneGrd onIndx onHm">
+        <div className="secIn">
+          <div className="blogM">
+            <main className="blogItm mainbar">
+              <div className="section admins">
+                <ul className="mSoc">
+                  <li>
+                     <Flower/>
+                  </li>
+                  <li>
+                     <Flower/>
+                  </li>
+                  <li>
+                       <Flower/>
+                  </li>
+                  <li>
+                    <Flower/>
+                  </li>
+                </ul>
               </div>
-              <div className="w-1/4 bg-white p-4 rounded-md shadow-md">
-                <h1 className="text-2xl font-bold">Total Courses</h1>
-                <p className="text-4xl font-bold">100</p>
+              <div className="section" id="main-widget">
+                <LattestPost postData={postData} />
               </div>
-              <div className="w-1/4 bg-white p-4 rounded-md shadow-md">
-                <h1 className="text-2xl font-bold">Total Students</h1>
-                <p className="text-4xl font-bold">100</p>
-              </div>
-              <div className="w-1/4 bg-white p-4 rounded-md shadow-md">
-                <h1 className="text-2xl font-bold">Total Teachers</h1>
-                <p className="text-4xl font-bold">100</p>
-              </div>
-            </div>
+            </main>
           </div>
         </div>
-      </AdminProtected>
+      </div>
     </>
   );
 };

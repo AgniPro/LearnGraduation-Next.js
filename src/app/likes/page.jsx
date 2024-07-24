@@ -1,11 +1,11 @@
 import React from "react";
-import LattestPost from "../components/Home/LattestPost";
-import Mobilemenu from "../components/LayoutComponents/Mobilemenu";
-import Footer from "../components/LayoutComponents/Footer";
+import LattestPost from "@/components/Home/LattestPost";
+import Mobilemenu from "@/components/LayoutComponents/Mobilemenu";
+import Footer from "@/components/LayoutComponents/Footer";
 import { api } from "../Contexts";
 
 async function getPostData() {
-  const res = await fetch(api+"get-posts?skip=0")
+  const res = await fetch(api+"/api/get-posts?skip=0")
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }

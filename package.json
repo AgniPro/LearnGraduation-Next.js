@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.6.0",
     "@reduxjs/toolkit": "^2.2.4",
     "formik": "^2.4.6",
     "js-cookie": "^3.0.5",

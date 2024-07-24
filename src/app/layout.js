@@ -1,11 +1,16 @@
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import StoreProvider from "./StoreProvider";
-import Menu from "@/components/Menu";
 import Header from "@/components/Header";
+
 export const metadata = {
   title: "LearnGraduation",
   description: "LearnGraduation is owned and dev. by AgniPro",
+  keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes',
+  charSet: "UTF-8",
+  msapplicationNavbuttonColor: "#ff0040",
+  appleMobileWebAppStatusBarStyle: "#ff0040",
+  appleMobileWebAppCapable: "true"
 };
 
 export default function RootLayout({ children }) {
@@ -20,7 +25,6 @@ export default function RootLayout({ children }) {
             <div className="mainWrp">
               <Header/>
               <div className="mainIn">
-                <Menu />
                 {children}
               </div>
             </div>

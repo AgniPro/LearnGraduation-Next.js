@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { api } from '@/app/Contexts';
-import { useSelector } from 'react-redux';
-import toast from 'react-hot-toast';
 
 function Pcomment(props) {
-    const user = useSelector((state) => state.auth.user);
+    const user = {
+        email: "sdf@gmail.com",
+        name: "temp name"
+    };
     useEffect(() => {
         if (Array.isArray(props.pcomment.comments)) {
             setCcontent(props.pcomment.comments);
@@ -14,36 +15,34 @@ function Pcomment(props) {
 
     const [cContent, setCcontent] = useState([]);
 
-    function submitComment() {
+    const submitComment = async () => {
         let content = document.getElementById('addComment').value;
-
         if (!content) {
             alert('Please enter your Comment first');
             return;
         }
-        fetch(`${api}/p/${props.pcomment._id}/comments`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            credentials: "include",
-            body: new URLSearchParams({
-                content: content
+        try {
+            const response = await fetch(`${api}/api/p/${props.pcomment._id}/comment`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: "include",
+                body: JSON.stringify({
+                    content: content
+                })
             })
-        }).then(response => {
-            if (response.ok) {
-                const relode = (props.cmntupdate)
-                relode();
-                const textArea = document.querySelector('#addComment');
-                textArea.value = '';
-                toast.success('Comment Added');
+            if (response.success === true) {
+               console.log('comment addes')
             }
             if (!response.ok) {
-                toast.error('Somthing Went Wrong');
+                alert('Somthing Went Wrong');
             }
-        }).catch(error => {
-            toast.error('Somthing Went Wrong');
-        });
+
+        } catch (error) {
+            alert("error on adding comment")
+
+        }
     }
 
     const login_toComment = () => {

@@ -1,6 +1,6 @@
 
-export const api = process.env.NEXT_PUBLIC_SERVER_URL;
-export const domain = process.env.NEXTAUTH_URL;
+export const api ="http://localhost:8000";
+export const domain = process.env.NEXT_PUBLIC_URL;
 
 export const DarkMode = () => {
   localStorage.setItem("mode", "darkmode" === localStorage.getItem("mode") ? "light" : "darkmode"),

@@ -2,7 +2,6 @@
 import React, { use, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ProfileInfo from "./ProfileInfo";
-import ChangePassword from "./ChangePassword";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 
 

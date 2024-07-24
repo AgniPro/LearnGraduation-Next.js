@@ -1,7 +1,6 @@
-
-import ThemeSwitcher from "@/app/utils/ThemeSwitcher";
 import React from "react";
-
+import ThemeSwitcher from "@/utils/ThemeSwitcher";
+import Link from "next/link";
 
 function Mobilemenu() {
 
@@ -11,12 +10,14 @@ function Mobilemenu() {
         <ul>
           <li className="mH nmH">
             <span aria-label="Home" data-text="Home">
+            <Link href={"/"} >
               <svg className="line" viewBox="0 0 24 24">
                 <g transform="translate(2.400000, 2.000000)">
                   <path d="M1.24344979e-14,11.713 C1.24344979e-14,6.082 0.614,6.475 3.919,3.41 C5.365,2.246 7.615,0 9.558,0 C11.5,0 13.795,2.235 15.254,3.41 C18.559,6.475 19.172,6.082 19.172,11.713 C19.172,20 17.213,20 9.586,20 C1.959,20 1.24344979e-14,20 1.24344979e-14,11.713 Z">
                   </path>
                 </g>
               </svg>
+              </Link>
             </span>
           </li>
           <li className="mS">
@@ -45,9 +46,7 @@ function Mobilemenu() {
               </svg>
             </label>
           </li>
-          <li className="mD">
-            <ThemeSwitcher />
-          </li>
+          <ThemeSwitcher />
           {/* <li class="mS">
             <label data-text="Share" for="forShare">
               <svg className="line" viewBox="0 0 24 24"><path d="M92.30583,264.72053a3.42745,3.42745,0,0,1-.37,1.57,3.51,3.51,0,1,1,0-3.13995A3.42751,3.42751,0,0,1,92.30583,264.72053Z" transform="translate(-83.28571 -252.73452)"></path><circle cx="18.48892" cy="5.49436" r="3.51099"></circle><circle cx="18.48892" cy="18.50564" r="3.51099"></circle><line class="cls-3" x1="12.53012" x2="8.65012" y1="8.476" y2="10.416"></line><line class="cls-3" x1="12.53012" x2="8.65012" y1="15.496" y2="13.556"></line></svg>

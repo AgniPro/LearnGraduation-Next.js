@@ -3,7 +3,10 @@ import Link from "next/link";
 import { api, date } from "@/app/Contexts";
 
 async function getPopularPost(skip) {
-  const res = await fetch(api+"popular-posts")
+  const res = await fetch(api+"/popular-posts")
+  if (res.status !== "200") {
+    return []
+  }
   return res.json()
 }
 
