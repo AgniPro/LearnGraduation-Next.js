@@ -1,5 +1,5 @@
 
-export const api = "http://localhost:8000";
+export const api = "https://learngraduation.onrender.com";
 export const domain = process.env.NEXT_PUBLIC_URL;
 
 export const date = (pdate, udate) => {
