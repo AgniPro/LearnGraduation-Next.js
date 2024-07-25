@@ -172,7 +172,7 @@ function ProfileMenu() {
                                     <ul>
                                         <li itemProp="name">
                                             <Link
-                                                href="/admin/create-post"
+                                                href="/"
                                                 itemProp="url"
                                             >
                                                 Change Password
@@ -200,7 +200,7 @@ function ProfileMenu() {
                                 <li>
                                     <Link
                                         className="a"
-                                        href="/mocktest"
+                                        href="/"
                                         itemProp="url"
                                     >
                                         <svg className="line" viewBox="0 0 24 24">
@@ -219,7 +219,7 @@ function ProfileMenu() {
                                 <li>
                                     <Link
                                         className="a"
-                                        href="https://learngraduation.blogspot.com/p/about-me.html"
+                                        href="/profile/likes"
                                         itemProp="url"
                                     >
                                         <svg className="line" viewBox="0 0 24 24">
@@ -319,7 +319,7 @@ function ProfileMenu() {
                                         <li itemProp="name">
                                             <Link
                                                 className="new"
-                                                href="/search/label/Notes"
+                                                href="/"
                                                 itemProp="url"
                                             >
                                                 Try Notes{" "}

@@ -9,17 +9,21 @@ import Notification from "@/components/LayoutComponents/Notification";
 import Link from "next/link";
 import { api, date } from "./Contexts";
 import Menu from "@/components/Menu";
+import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 async function getPostData() {
-  const res = await fetch(api + '/api/get-posts?skip=0')
+  const res = await fetch(`${api}/api/get-posts?skip=0`);
   if (res.status !== 200) {
-    return [];
+    redirect('/error')
   }
+  revalidatePath('/',"page")
   return res.json()
+  
 }
 
 const Page = async () => {
-  const postData = await getPostData();
+  const postData =await getPostData()
   const [pinnedPost, ...latestPosts] = postData;
   const { pubinfo, month, year } = date(pinnedPost?.createdAt, pinnedPost?.updatedAt);
   return (<>

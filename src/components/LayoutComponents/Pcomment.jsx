@@ -1,12 +1,11 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { api } from '@/app/Contexts';
+import { api, date } from '@/app/Contexts';
+import toast from 'react-hot-toast';
+import Cookies from 'js-cookie';
 
 function Pcomment(props) {
-    const user = {
-        email: "sdf@gmail.com",
-        name: "temp name"
-    };
+    const user = Cookies.get("is_auth");
     useEffect(() => {
         if (Array.isArray(props.pcomment.comments)) {
             setCcontent(props.pcomment.comments);
@@ -22,7 +21,7 @@ function Pcomment(props) {
             return;
         }
         try {
-            const response = await fetch(`${api}/api/p/${props.pcomment._id}/comment`, {
+            fetch(`${api}/api/p/${props.pcomment._id}/comment`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,22 +30,21 @@ function Pcomment(props) {
                 body: JSON.stringify({
                     content: content
                 })
+            }).then(response => response.json().then(data => {
+                toast.success("Comment posted");
+                setCcontent(data.comments);
+                document.getElementById('addComment').value = ""
+            })).catch(error => {
+                toast.error("Please try again later")
             })
-            if (response.success === true) {
-               console.log('comment addes')
-            }
-            if (!response.ok) {
-                alert('Somthing Went Wrong');
-            }
-
         } catch (error) {
-            alert("error on adding comment")
+            toast.error("Something went wrong");
 
         }
     }
 
     const login_toComment = () => {
-        alert('Please login to comment');
+        toast.error("Login to Comment")
     };
 
     return (
@@ -74,7 +72,9 @@ function Pcomment(props) {
                             <div className="cmCn">
                                 <ol className="cmHl" id="cmHolder">
 
-                                    {cContent?.map(comment => (
+                                    {cContent?.map(comment => {
+                                        const {month} = date(comment?.createdAt, comment?.updatedAt);
+                                        return(
 
                                         <li className="c" key={comment._id} id={comment._id}>
                                             <div className="cmAv">
@@ -89,8 +89,7 @@ function Pcomment(props) {
                                                                 {comment.author ? comment.author.name : "Unknown"}
                                                             </bdi>
                                                         </span>
-                                                        <span className="d dtTm" data-datetime="March 16, 2023 at 4:55 PM">second ago</span>
-                                                        <span className="d date" data-datetime="March 16, 2023 at 4:55 PM" itemProp="datePublished">March 16, 2023 at 4:55 PM</span>
+                                                        <span className="d dtTm" data-datetime={comment.createdAt}>{month}</span>
                                                     </div>
                                                     <div className="cmCo" itemProp="text">
                                                         {comment.content}
@@ -99,13 +98,13 @@ function Pcomment(props) {
                                             </div>
                                         </li>
 
-                                    ))}
+                                    )})}
                                 </ol>
                             </div>
-                            {user.email ? (
+                            {user ? (
                                 <div className="cmFrm">
                                     <div id="commentForm">
-                                        <label htmlFor="addComment">Comment as {user.name}</label>
+                                        <label htmlFor="addComment">Comment as {user}</label>
                                         <textarea name="addComment" id="addComment" cols="1" rows="1"></textarea>
                                         <button className='button' role='button' onClick={submitComment}>Publish</button>
                                     </div>

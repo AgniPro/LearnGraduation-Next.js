@@ -2,7 +2,7 @@
 import Like from "@/components/LayoutComponents/Like";
 import Link from "next/link";
 import Pcomment from "@/components/LayoutComponents/Pcomment";
-import { api, date, domain } from "@/app/Contexts";
+import { api, date, domain} from '@/app/Contexts'
 import { Pshare, Share } from "@/components/LayoutComponents/Pshare";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -12,7 +12,8 @@ async function getPostData(post, accessToken) {
     headers: {
       // Pass accessToken in the request headers
       Authorization: `Bearer ${accessToken}`,
-    },
+      cache: 'no-store'
+    }
   });
   if(!res.ok){
     redirect("/404")
@@ -104,9 +105,5 @@ export async function generateMetadata({ params: { post } }) {
     title: `${postcontent.title}|| LearnGradution`,
     description: `${postcontent.discription}`,
     keywords: `${postcontent.tags}`,
-    charSet: "UTF-8",
-    msapplicationNavbuttonColor: "#ff0040",
-    appleMobileWebAppStatusBarStyle: "#ff0040",
-    appleMobileWebAppCapable: "true"
   };
 }

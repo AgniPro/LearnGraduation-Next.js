@@ -4199,48 +4199,6 @@
     font-size: 14px;
   }
   
-  /* Error Page */
-  .erroP {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    padding: 0;
-  }
-  
-  .erroC {
-    width: calc(100% - 40px);
-    max-width: 450px;
-    margin: auto;
-    font-family: var(--fontBa);
-  }
-  
-  .erroC h3 {
-    font-size: 1.414rem;
-    font-family: inherit;
-  }
-  
-  .erroC h3 span {
-    display: block;
-    font-size: 140px;
-    line-height: 0.8;
-    margin-bottom: -1rem;
-    color: #ebebf0;
-  }
-  
-  .erroC p {
-    margin: 30px 5%;
-    line-height: 1.6em;
-    opacity: 0.7;
-  }
-  
-  .erroC .button {
-    margin: 0;
-    padding-left: 2em;
-    padding-right: 2em;
-    font-size: 14px;
-  }
   
   /* Responsive */
   @media screen and (min-width: 897px) {

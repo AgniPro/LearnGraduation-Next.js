@@ -7,10 +7,6 @@ export const metadata = {
   title: "Profile | LearnGraduation",
   description: "LearnGraduation is owned and dev. by AgniPro",
   keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes',
-  charSet: "UTF-8",
-  msapplicationNavbuttonColor: "#ff0040",
-  appleMobileWebAppStatusBarStyle: "#ff0040",
-  appleMobileWebAppCapable: "true"
 };
 
 export default function AdminLayout({ children }) {
@@ -22,11 +18,7 @@ export default function AdminLayout({ children }) {
                 <div className="blogM">
                     {/*[ Main content ]*/}
                     <main className="blogItm mainbar">
-                        <div className="section" id="main-widget"><div className="widget HTML" data-version={2} id="HTML93">
-                            <div className="widget-content">
-                                <div className="adB" data-text="Ads go here" />
-                            </div>
-                        </div>
+                        <div className="section" id="main-widget">
                             {children}
                         </div>
                     </main>

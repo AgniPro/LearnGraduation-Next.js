@@ -32,7 +32,7 @@ function LattestPost(props) {
     };
 
     const handlescroll = () => {
-        const skip = homedata.length;
+        const skip = homedata.length+1;
         if (loadbtn === "No More Post") {
             return;
         }
