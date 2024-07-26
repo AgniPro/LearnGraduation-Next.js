@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { userLoggedIn } from './authSlice'
 // Define a service using a base URL and expected endpoints
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -44,24 +43,13 @@ export const authApi = createApi({
       }
     }),
     getUser: builder.query({
-      query: () => (
-        {
+     query: () => {
+        return {
           url: `me`,
           method: 'GET',
           credentials: 'include'
-        })
-      , async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-        try {
-          const result = await queryFulfilled;
-          dispatch(
-            userLoggedIn({
-              user: result.data.user,
-            })
-          );
-        } catch (error) {
-          console.log(error);
-        }
-      },
+       }
+      }
     }),
     logoutUser: builder.mutation({
       query: () => {
