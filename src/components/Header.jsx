@@ -9,18 +9,15 @@ import Link from "next/link";
 import ThemeSwitcher from "../utils/ThemeSwitcher";
 import { useGetUserQuery, useLogoutUserMutation } from "@/lib/services/auth";
 import Cookies from "js-cookie";
-import ResetPasswordLink from "./Auth/ResetPasswordLink";
-
 
 const Header = () => {
 
     const [authCheckbox, setAuthCheckbox] = useState(false);
-    const [open, setOpen] = useState(false);
-    const [route, setRoute] = useState("Login");
+    const [open,setOpen] = useState(false);
+    const [route,setRoute]=useState("Login");
     const [isAuthenticated, setIsAuth] = useState(null);
     const [user, setUser] = useState({})
-    const { data, isSuccess, error } = useGetUserQuery()
-
+    const { data, isSuccess,error } = useGetUserQuery()
     useEffect(() => {
         const authCookie = Cookies.get('is_auth')
         setIsAuth(authCookie)
@@ -53,17 +50,17 @@ const Header = () => {
         setOpen(true);
         setAuthCheckbox(true);
         if (route === "Verification") {
-            setRoute("Verification");
+          setRoute("Verification");
         } else {
-            setRoute("Sign-Up");
+          setRoute("Sign-Up");
         }
-    };
-    const handleGoogleLogin = async () => {
+      };
+      const handleGoogleLogin = async () => {
         window.open(
-            `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/google`,
-            "_self"
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/google`,
+          "_self"
         );
-    }
+      }
 
     return (
         <header className="header" id="header">
@@ -376,18 +373,6 @@ const Header = () => {
                                                 route={route}
                                                 setOpen={setOpen}
                                                 component={Verification}
-                                            />
-                                        )}
-                                    </>
-                                )}
-                                {route === "ResetPasswordLink" && (
-                                    <>
-                                        {open && (
-                                            <CustomModal
-                                                setRoute={setRoute}
-                                                route={route}
-                                                setOpen={setOpen}
-                                                component={ResetPasswordLink}
                                             />
                                         )}
                                     </>
