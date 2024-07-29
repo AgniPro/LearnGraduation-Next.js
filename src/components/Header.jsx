@@ -19,23 +19,33 @@ const Header = () => {
     const [user, setUser] = useState({})
     const { data, isSuccess,error } = useGetUserQuery()
 
-    useEffect(() => {
-      const authCookie = Cookies.get('is_auth')
-    console.log('Auth Cookie:', authCookie);  // Debugging
-      setIsAuth(authCookie)
+      useEffect(() => {
+    const checkAuthCookie = () => {
+      const authCookie = Cookies.get('is_auth');
+      console.log('Auth Cookie:', authCookie); // Debugging
+      setIsAuth(authCookie);
+
       if (data && isSuccess) {
-        setIsAuth(authCookie)
+        console.log('User Data:', data.user); // Debugging
         setUser(data.user);
       }
+
       if (error) {
+        console.error('Error:', error); // Debugging
         setIsAuth(false);
-        Cookies.remove('is_auth')
+        Cookies.remove('is_auth');
       }
-        // Check the cookie after a short delay to ensure it is available
+    };
+
+    // Check the cookie after a short delay to ensure it is available
     const cookieCheckTimeout = setTimeout(checkAuthCookie, 100);
 
     return () => clearTimeout(cookieCheckTimeout);
-    }, [data, isSuccess,error])
+  }, [data, isSuccess, error]);
+
+  useEffect(() => {
+    console.log('isAuthenticated state:', isAuthenticated); // Debugging
+  }, [isAuthenticated]);
 
     const [logoutUser] = useLogoutUserMutation()
     const handleLogout = async () => {
