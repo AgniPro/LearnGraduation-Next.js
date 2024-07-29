@@ -31,6 +31,10 @@ const Header = () => {
         setIsAuth(false);
         Cookies.remove('is_auth')
       }
+        // Check the cookie after a short delay to ensure it is available
+    const cookieCheckTimeout = setTimeout(checkAuthCookie, 100);
+
+    return () => clearTimeout(cookieCheckTimeout);
     }, [data, isSuccess,error])
 
     const [logoutUser] = useLogoutUserMutation()
