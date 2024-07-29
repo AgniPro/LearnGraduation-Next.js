@@ -23,6 +23,7 @@ const Header = () => {
       const authCookie = Cookies.get('is_auth')
       setIsAuth(authCookie)
       if (data && isSuccess) {
+        setIsAuth(authCookie)
         setUser(data.user);
       }
       if (error) {
