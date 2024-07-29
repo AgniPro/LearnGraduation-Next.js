@@ -21,6 +21,7 @@ const Header = () => {
 
     useEffect(() => {
       const authCookie = Cookies.get('is_auth')
+    console.log('Auth Cookie:', authCookie);  // Debugging
       setIsAuth(authCookie)
       if (data && isSuccess) {
         setIsAuth(authCookie)
