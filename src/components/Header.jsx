@@ -37,7 +37,7 @@ const Header = () => {
     }, [data, isSuccess, error])
 
     const [logoutUser] = useLogoutUserMutation()
-    const handleLogout = async () => {
+        const handleLogout = async () => {
         try {
             const response = await logoutUser()
             if (response.data && response.data.success === true) {
@@ -46,8 +46,7 @@ const Header = () => {
                 for (let cookie in allCookies) {
                     Cookies.remove(cookie);
                 }
-                Cookies.remove('accessToken', { path: '/', domain: 'learngraduation.onrender.com' })
-                // window.location.reload();
+                window.location.reload();
             }
         } catch (error) {
             console.log(error);
