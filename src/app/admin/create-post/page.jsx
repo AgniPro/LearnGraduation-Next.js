@@ -9,7 +9,7 @@ function Compose() {
   function savePost() {
     let postTitle = document.getElementById('title').value;
     let postContent = content;
-    let url = document.getElementById("url").value;
+    let url =encodeURIComponent(document.getElementById("url").value);
     let discription = document.getElementById("discription").value;
     let image = document.getElementById("image").value;
     let tags = document.getElementById("tags").value;
