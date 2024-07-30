@@ -2,7 +2,7 @@
 const CopyInClipboard= ()=>{
     function copyFunction() {
         if (typeof window !== 'undefined') {
-          const link = document.getElementById("getlink");
+          const link = document.getElementById("getlink").value;
           navigator.clipboard.writeText(link)
             .then(() => {
               document.getElementById("cpNotif").innerHTML = "<span>Link copied to clipboard!</span>";
