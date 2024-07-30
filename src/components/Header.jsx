@@ -47,7 +47,7 @@ const Header = () => {
                     Cookies.remove(cookie);
                 }
                 Cookies.remove('accessToken', { path: '/', domain: 'learngraduation.onrender.com' })
-                window.location.reload();
+                // window.location.reload();
             }
         } catch (error) {
             console.log(error);
