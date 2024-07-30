@@ -1,5 +1,5 @@
 'use client'
-const CopyInClipboard= ()=>{
+const CopyInClipboard= (props)=>{
     function copyFunction() {
         if (typeof window !== 'undefined') {
           navigator.clipboard.writeText(props.link)
