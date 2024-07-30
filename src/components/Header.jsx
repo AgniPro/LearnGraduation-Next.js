@@ -19,10 +19,16 @@ const Header = () => {
     const [user, setUser] = useState({})
     const { data, isSuccess,error } = useGetUserQuery()
     useEffect(() => {
-        const authCookie = Cookies.get('is_auth')
-        setIsAuth(authCookie)
         if (data && isSuccess) {
             setUser(data.user);
+            setIsAuth(true);
+            if (data.user.role==="admin") {
+                Cookies.set('is_auth', '1415914');
+                Cookies.set('uid', data.user._id);
+            } else {
+                Cookies.set('is_auth', '2119518');
+                Cookies.set('uid', data.user._id);
+            }
         }
         if (error) {
             setIsAuth(false);
