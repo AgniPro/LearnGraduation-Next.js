@@ -1,0 +1,77 @@
+.passwordField {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.btnBox {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 12px 0;
+}
+
+.btn {
+  width: 172px;
+  height: 52px;
+  color: black;
+  background-color: #cbdfff;
+  border: none;
+  border-radius: 18px;
+  box-shadow: var(--sdoa);
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #b3d4ff;
+}
+.btn:global(:disabled) {
+  background-color: #cbdfff;
+  cursor: not-allowed;
+}
+.authLabel {
+  margin: 0 0 2px 4px;
+  color: #757575;
+}
+
+.authInput {
+  height: 40px;
+  border: none;
+  border-radius: 12px;
+  padding: 2px 12px 2px 12px;
+  font-size: 16px;
+  color: black !important;
+  background: #edf4ff;
+  box-shadow: var(--sdoa);
+}
+.authEyeBtn {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+  bottom: 29px;
+  right: 15px;
+  margin-left: 90%;
+}
+.authH5 {
+  font-size: 18px;
+  color: #3b3b3b;
+}
+.socialAuth {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 12px 0;
+}
+.socialAuthBtn {
+  width: 42px;
+  height: 42px;
+  margin: 4px 10px 4px 10px;
+  cursor: pointer;
+}
+.flexItemCenter {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.errormsg {
+  color: #e46962;
+  font-size: small;
+  margin: 4px 0 0 4px;
+}
