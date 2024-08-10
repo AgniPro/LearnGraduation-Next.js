@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,Suspense} from "react";
 import avatarDefault from "../../../public/assets/avatar.png";
 import Link from "next/link";
 import Cookies from "js-cookie";
@@ -83,6 +83,7 @@ const HeaderProfile=()=>{
 
     return(
         <div className="widget Profile" data-version={2} id="Profile1">
+            <Suspense fallback={<div>Loading...</div>}></Suspense>
         <div className="wPrf tm">
             <div className="prfS fixLs">
                 <div className="prfH fixH fixT" data-text="Account">
