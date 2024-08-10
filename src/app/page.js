@@ -8,9 +8,9 @@ import Slider from "@/components/LayoutComponents/Slider";
 import Notification from "@/components/LayoutComponents/Notification";
 import Link from "next/link";
 import { api, date } from "./Contexts";
-import Menu from "@/components/Menu";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import Menu from "@/components/LayoutComponents/Menu";
 
 async function getPostData() {
   const res = await fetch(`${api}/api/get-posts?skip=0`);
@@ -77,20 +77,23 @@ const Page = async () => {
                       </div>
                       <div className="iCtnt">
                         <div className="pHdr">
-                          <div className="pLbls" data-text="in">
+                        {pinnedPost?.categories[0]?
+                          <div className="pLbls" data-text="in ">
                             <a
-                              aria-label="Bsc"
-                              data-text="Bsc"
-                              href="/search/label/Bsc"
+                              aria-label={pinnedPost.categories[0]}
+                              data-text={pinnedPost.categories[0]}
+                              href={`/search/${pinnedPost.categories[0]}`}
                               rel="tag"
                             ></a>
+                            {pinnedPost.categories[1]?
                             <a
-                              aria-label="Mathematics"
-                              data-text="Mathematics"
-                              href="/search/label/Mathematics"
+                              aria-label={pinnedPost.categories[1]}
+                              data-text={pinnedPost.categories[1]}
+                              href={`/search/${pinnedPost.categories[1]}`}
                               rel="tag"
-                            ></a>
+                            ></a>:<></>}
                           </div>
+                          :<></>}
                         </div>
                         <h3 className="pTtl aTtl">
                           <Link href={"/p/" + pinnedPost.url}>

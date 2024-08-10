@@ -9,15 +9,26 @@ import Verification from "../Auth/Verification";
 import Login from "../Auth/Login";
 import SignUp from "../Auth/SignUp";
 import CustomModal from "@/utils/CustomModal";
-
+import ResetPassword from "../Auth/ResetPassword";
+import { useSearchParams } from 'next/navigation'
 
 const HeaderProfile=()=>{
+    const searchParams = useSearchParams();
     const [authCheckbox, setAuthCheckbox] = useState(false);
     const [open, setOpen] = useState(false);
-    const [route, setRoute] = useState("Login");
+    const [route, setRoute] = useState(null);
     const [isAuthenticated, setIsAuth] = useState(null);
-    const [user, setUser] = useState({})
-    const { data, isSuccess, error } = useGetUserQuery()
+    const [user, setUser] = useState({});
+    const { data, isSuccess, error } = useGetUserQuery();
+    const i = searchParams.get('i');
+    const t = searchParams.get('t');
+    useEffect(() => {
+        if (i!== null && t!== null ) {
+            setAuthCheckbox(true);
+            setRoute("Reset Password");
+            setOpen(true);
+        }
+    }, [i, t]);
 
     useEffect(() => {
         if (data && isSuccess) {
@@ -223,6 +234,7 @@ const HeaderProfile=()=>{
             type="checkbox"
             onChange={() => setAuthCheckbox(!authCheckbox)}
             checked={authCheckbox}
+            title="forAuth"
         />
         {route === "Sign-Up" && (
             <>
@@ -261,7 +273,7 @@ const HeaderProfile=()=>{
                 )}
             </>
         )}
-        {route === "ResetPasswordLink" && (
+        {route === "Reset Password Link" && (
             <>
                 {open && (
                     <CustomModal
@@ -269,6 +281,18 @@ const HeaderProfile=()=>{
                         route={route}
                         setOpen={setOpen}
                         component={ResetPasswordLink}
+                    />
+                )}
+            </>
+        )}
+        {route === "Reset Password" && (
+            <>
+                {open && (
+                    <CustomModal
+                        setRoute={setRoute}
+                        route={route}
+                        setOpen={setOpen}
+                        component={ResetPassword}
                     />
                 )}
             </>

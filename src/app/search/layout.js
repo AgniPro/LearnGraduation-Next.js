@@ -2,27 +2,21 @@ import Footer from "@/components/LayoutComponents/Footer"
 import Menu from "@/components/LayoutComponents/Menu"
 import Mobilemenu from "@/components/LayoutComponents/Mobilemenu"
 import Notification from "@/components/LayoutComponents/Notification"
-import Sidebar from "@/components/LayoutComponents/Sidebar"
 
-const PostLayout = ({ children }) => {
+const SearchLayout = ({ children }) => {
     return (
         <>
         <Menu />
-            <div className="blogCont onItm onPs">
+            <div className="blogCont onItm onPg">
                 <div className="secIn">
                     <Notification />
                     <div className="blogM">
                         {/*[ Main content ]*/}
                         <main className="blogItm mainbar">
-                            <div className="section" id="main-widget"><div className="widget HTML" data-version={2} id="HTML93">
-                                <div className="widget-content">
-                                    <div className="adB" data-text="Ads go here" />
-                                </div>
-                            </div>
+                            <div className="section" id="main-widget">
                                 {children}
                             </div>
                         </main>
-                        <Sidebar />
                     </div>
                     <Mobilemenu />
                     <Footer />
@@ -32,4 +26,4 @@ const PostLayout = ({ children }) => {
     )
 }
 
-export default PostLayout
+export default SearchLayout;

@@ -35,10 +35,11 @@ export default async function Page({ params: { post } }) {
               <Link href="/" itemProp="item"><span itemProp="name">Home</span></Link>
               <meta content={1} itemProp="position" />
             </div>
-            <div className="lb" itemProp="itemListElement" itemScope="itemscope" itemType="https://schema.org/ListItem">
-              <Link href="/search/label/Bsc" itemProp="item"><span itemProp="name">B.Sc</span></Link>
+            {postcontent.categories[0] ?
+              <div className="lb" itemProp="itemListElement" itemScope="itemscope" itemType="https://schema.org/ListItem">
+              <Link href={postcontent.categories[0]} itemProp="item"><span itemProp="name">{postcontent.categories[0]}</span></Link>
               <meta content={2} itemProp="position" />
-            </div>
+            </div>: <></>}
           </div>
           <h1 className="pTtl aTtl sml itm">
             <span>
@@ -100,7 +101,7 @@ export default async function Page({ params: { post } }) {
 export async function generateMetadata({ params: { post } }) {
   const [postcontent] = await Promise.all([getPostData(post)])
   return {
-    title: `${postcontent.title}|| LearnGradution`,
+    title: `${postcontent.title}`,
     description: `${postcontent.description}`,
     keywords: `${postcontent.tags}`,
   };

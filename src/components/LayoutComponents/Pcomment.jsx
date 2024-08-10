@@ -89,7 +89,7 @@ function Pcomment(props) {
 
                                             <li className="c" key={comment._id} id={comment._id}>
                                                 <div className="cmAv">
-                                                    <div className="im lazy loaded" lazied="true" style={{ backgroundImage: `url(${comment.author.avatar ? comment.author?.avatar.url : avatarDefault.src})` }}>
+                                                    <div className="im lazy loaded" lazied="true" style={{ backgroundImage: `url(${comment.author?.avatar ? comment.author?.avatar.url : avatarDefault.src})` }}>
                                                     </div>
                                                 </div>
                                                 <div className="cmIn">
@@ -97,10 +97,10 @@ function Pcomment(props) {
                                                         <div className="cmHr">
                                                             <span className="n" itemProp="author" itemScope="itemscope" itemType="https://schema.org/Person">
                                                                 <bdi itemProp="name">
-                                                                    {comment.author.name ? comment.author.name : "Unknown"} {comment.author?.role === 'admin' ? '✅' : ''}
+                                                                    {comment.author?.name ? comment.author.name : "Unknown"} {comment.author?.role === 'admin' ? '✅' : ''}
                                                                 </bdi>
                                                             </span>
-                                                            <span className="d dtTm" data-datetime={comment.createdAt}>{month}</span>
+                                                            <span className="d dtTm" data-datetime={comment.createdAt}>&#183; {month}</span>
                                                         </div>
                                                         <div className="cmCo" itemProp="text">
                                                             {comment.content}

@@ -24,9 +24,7 @@ export default Page;
 
 export function generateMetadata() {
   return {
-    title: {
-      default: "My Likes || LearnGradution",
-    },
+    title:"My Likes | LearnGraduation",
     description: "description",
     keywords: "keywords",
   };

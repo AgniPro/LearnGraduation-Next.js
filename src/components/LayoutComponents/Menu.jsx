@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function Menu (){
     return(
@@ -22,19 +22,19 @@ function Menu (){
                   >
                     <ul className="mMenu">
                       <li>
-                        <a href="https://learngraduation.blogspot.com/p/sitemap.html">
+                        <Link href="https://learngraduation.blogspot.com/p/sitemap.html">
                           Sitemap
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="https://learngraduation.blogspot.com/p/disclaimer.html">
+                        <Link href="https://learngraduation.blogspot.com/p/disclaimer.html">
                           Disclaimer
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="https://learngraduation.blogspot.com/p/privacy-policy.html">
+                        <Link href="https://learngraduation.blogspot.com/p/privacy-policy.html">
                           Privacy
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -59,7 +59,7 @@ function Menu (){
                         </span>
                       </li>
                       <li>
-                        <a
+                        <Link
                           aria-label="Instagram"
                           className="a tIc bIc"
                           href="https://www.instagram.com/learngraduation/"
@@ -72,10 +72,10 @@ function Menu (){
                             <path d="M16,9.5A6.5,6.5,0,1,0,22.5,16,6.51,6.51,0,0,0,16,9.5Zm0,11A4.5,4.5,0,1,1,20.5,16,4.51,4.51,0,0,1,16,20.5Z"></path>
                             <circle cx={23} cy={9} r={1} />
                           </svg>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
                           aria-label="Twitter"
                           className="a tIc bIc"
                           href="https://twitter.com/hashtag/learngraduation?src=hash"
@@ -86,7 +86,7 @@ function Menu (){
                           <svg viewBox="0 0 32 32">
                             <path d="M13.35,28A13.66,13.66,0,0,1,2.18,22.16a1,1,0,0,1,.69-1.56l2.84-.39A12,12,0,0,1,5.44,4.35a1,1,0,0,1,1.7.31,9.87,9.87,0,0,0,5.33,5.68,7.39,7.39,0,0,1,7.24-6.15,7.29,7.29,0,0,1,5.88,3H29a1,1,0,0,1,.9.56,1,1,0,0,1-.11,1.06L27,12.27c0,.14,0,.28-.05.41a12.46,12.46,0,0,1,.09,1.43A13.82,13.82,0,0,1,13.35,28ZM4.9,22.34A11.63,11.63,0,0,0,13.35,26,11.82,11.82,0,0,0,25.07,14.11,11.42,11.42,0,0,0,25,12.77a1.11,1.11,0,0,1,0-.26c0-.22.05-.43.06-.65a1,1,0,0,1,.22-.58l1.67-2.11H25.06a1,1,0,0,1-.85-.47,5.3,5.3,0,0,0-4.5-2.51,5.41,5.41,0,0,0-5.36,5.45,1.07,1.07,0,0,1-.4.83,1,1,0,0,1-.87.2A11.83,11.83,0,0,1,6,7,10,10,0,0,0,8.57,20.12a1,1,0,0,1,.37,1.05,1,1,0,0,1-.83.74Z"></path>
                           </svg>
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <span className="a tIc bIc">
@@ -104,7 +104,7 @@ function Menu (){
                         </span>
                       </li>
                       <li>
-                        <a
+                        <Link
                           aria-label="Youtube"
                           className="a tIc bIc"
                           href="https://www.youtube.com/watch?v=BJUp5IrYEgo"
@@ -116,7 +116,7 @@ function Menu (){
                             <path d="M29.73,9.9A5,5,0,0,0,25.1,5.36a115.19,115.19,0,0,0-18.2,0A5,5,0,0,0,2.27,9.9a69,69,0,0,0,0,12.2A5,5,0,0,0,6.9,26.64c3,.24,6.06.36,9.1.36s6.08-.12,9.1-.36a5,5,0,0,0,4.63-4.54A69,69,0,0,0,29.73,9.9Zm-2,12A3,3,0,0,1,25,24.65a113.8,113.8,0,0,1-17.9,0,3,3,0,0,1-2.78-2.72,65.26,65.26,0,0,1,0-11.86A3,3,0,0,1,7.05,7.35C10,7.12,13,7,16,7s6,.12,9,.35a3,3,0,0,1,2.78,2.72A65.26,65.26,0,0,1,27.73,21.93Z"></path>
                             <path d="M21.45,15.11l-8-4A1,1,0,0,0,12,12v8a1,1,0,0,0,.47.85A1,1,0,0,0,13,21a1,1,0,0,0,.45-.11l8-4a1,1,0,0,0,0-1.78ZM14,18.38V13.62L18.76,16Z"></path>
                           </svg>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -156,36 +156,36 @@ function Menu (){
                         </label>
                         <ul>
                           <li itemProp="name">
-                            <a
-                              href="https://learngraduation.blogspot.com/search/label/Mathematics"
+                            <Link
+                              href="/search?q=Mathematics"
                               itemProp="url"
                             >
                               Mathematics
-                            </a>
+                            </Link>
                           </li>
                           <li itemProp="name">
-                            <a
-                              href="https://learngraduation.blogspot.com/search/label/Physics"
+                            <Link
+                              href="/search?q=Physics"
                               itemProp="url"
                             >
                               Physics
-                            </a>
+                            </Link>
                           </li>
                           <li itemProp="name">
-                            <a
-                              href="https://learngraduation.blogspot.com/search/label/Chemistry"
+                            <Link
+                              href="/search?q=Chemistry"
                               itemProp="url"
                             >
                               Chemestry
-                            </a>
+                            </Link>
                           </li>
                           <li itemProp="name">
-                            <a
-                              href="https://learngraduation.blogspot.com/search/label/Nobel"
+                            <Link
+                              href="/search?q=Nobel"
                               itemProp="url"
                             >
                               English
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </li>
@@ -217,31 +217,31 @@ function Menu (){
                         </label>
                         <ul>
                           <li itemProp="name">
-                            <a href="#" itemProp="url">
+                            <Link href="#" itemProp="url">
                               Mathematics
-                            </a>
+                            </Link>
                           </li>
                           <li itemProp="name">
-                            <a href="#" itemProp="url">
+                            <Link href="#" itemProp="url">
                               Physics
-                            </a>
+                            </Link>
                           </li>
                           <li itemProp="name">
-                            <a href="#" itemProp="url">
+                            <Link href="#" itemProp="url">
                               Chemestry
-                            </a>
+                            </Link>
                           </li>
                           <li itemProp="name">
-                            <a href="#" itemProp="url">
+                            <Link href="#" itemProp="url">
                               English
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </li>
                       <li>
                         <Link
                           className="a"
-                          to="/mocktest" onClick={() => document.getElementById('offNav').checked = false}
+                          href="/mocktest"
                           itemProp="url"
                         >
                            <svg className="line" viewBox="0 0 24 24">
@@ -273,7 +273,7 @@ function Menu (){
                         </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
                           className="a"
                           href="https://learngraduation.blogspot.com/p/about-me.html"
                           itemProp="url"
@@ -289,10 +289,10 @@ function Menu (){
                           <span className="n" itemProp="name">
                             About
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li className="br">
-                        <a
+                        <Link
                           className="a"
                           href="https://learngraduation.blogspot.com/p/contact.html"
                           itemProp="url"
@@ -306,10 +306,10 @@ function Menu (){
                           <span className="n" itemProp="name">
                             Contact
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li className="br">
-                        <a
+                        <Link
                           className="a"
                           href="https://learngraduation.blogspot.com/p/become-creator.html"
                           itemProp="url"
@@ -322,10 +322,10 @@ function Menu (){
                           <span className="n" itemProp="name">
                             Become Creator
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li className="br">
-                        <a
+                        <Link
                           className="a"
                           href="https://www.linkedin.com/in/agnipro/"
                           itemProp="url"
@@ -338,7 +338,7 @@ function Menu (){
                           <span className="n" itemProp="name">
                             Hire Us
                           </span>
-                        </a>
+                        </Link>
                       </li>
                       <li className="drp mr br">
                         <input
@@ -358,20 +358,20 @@ function Menu (){
                         </label>
                         <ul>
                           <li itemProp="name">
-                            <a
+                            <Link
                               className="new"
-                              href="/search/label/Notes"
+                              href="/search?q=Notes"
                               itemProp="url"
                             >
                               Try Notes{" "}
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </li>
                       <li>
-                        <a
+                        <Link
                           className="a"
-                          href="https://learngraduation.blogspot.com/search/label/e-Book"
+                          href="/search?q=e-Book"
                           itemProp="url"
                         >
                           <svg className="line" viewBox="0 0 24 24">
@@ -400,7 +400,7 @@ function Menu (){
                           <span className="n" itemProp="name">
                             E-Book{" "}
                           </span>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>

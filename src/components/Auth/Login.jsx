@@ -4,7 +4,7 @@ import formStyles from './authStyle.module.css';
 import { useFormik } from "formik";
 import { loginSchema } from "@/validation/schemas";
 import { useLoginUserMutation } from "@/lib/services/auth";
-
+import Cookies from "js-cookie";
 
 const initialValues = {
   email: "",
@@ -23,9 +23,10 @@ const Login = ({ setRoute, setOpen }) => {
       try {
         const response = await loginUser(values)
         if (response.data && response.data.success === true) {
-          action.resetForm()
+          action.resetForm();
           setLoading(false);
           setOpen(false);
+          setRoute(null);
           window.location.reload();
         }
         if (response.error && response.error.data.success === false) {
@@ -85,7 +86,7 @@ const Login = ({ setRoute, setOpen }) => {
           </button>
         </div>
       </form>
-      {serverMsg && (<> <span style={{ color: "red" }}>Invalid Email and Password</span> <br /><span style={{ cursor: 'pointer', color: 'var(--linkC)' }} onClick={() => setRoute("ResetPasswordLink")}>Forget password</span> <br /></>)}
+      {serverMsg && (<> <span style={{ color: "red" }}>Invalid Email and Password</span> <br /><span style={{ cursor: 'pointer', color: 'var(--linkC)' }} onClick={() => setRoute("Reset Password Link")}>Forget password</span> <br /></>)}
       <br />
       <h5 className={formStyles.authH5}>
         OR Login With Social Media Accounts <br />{" "}

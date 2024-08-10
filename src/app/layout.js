@@ -5,10 +5,13 @@ import Header from "@/components/Header";
 import Head from "next/head";
 
 export const metadata = {
-  title: "LearnGraduation",
-  description: "LearnGraduation is owned and dev. by AgniPro",
-  keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes',
-};
+  title: {
+    template: '%s | LearnGraduation',
+    default: 'LearnGraduation',
+  },
+  description: 'LearnGraduation is owned and dev. by AgniPro',
+  keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes'
+}
 
 export default function RootLayout({ children }) {
   return (

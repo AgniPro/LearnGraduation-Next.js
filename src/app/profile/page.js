@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import avatarDefault from '../../../public/assets/avatar.png'
 import { useEditProfileMutation, useGetUserQuery, useUpdateAvatarMutation } from "@/lib/services/auth";
 import toast from "react-hot-toast";
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
+  const router = useRouter();
   const { data, refetch, isSuccess: psuccess, error: perror } = useGetUserQuery();
   const [name, setName] = useState("");
   const [user, setUser] = useState('');
@@ -15,7 +17,7 @@ const Page = () => {
       setUser(data.user);
     }
     if (perror) {
-      redirect('/login');
+      router.push('/');
     }
   }, [data, psuccess, perror]);
 
