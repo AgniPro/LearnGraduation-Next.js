@@ -10,9 +10,26 @@ export const metadata = {
     default: 'LearnGraduation',
   },
   description: 'LearnGraduation is owned and dev. by AgniPro',
-  keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes'
+  keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes',
+  verification: {
+    google: `${process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}`,
+  },
+  appleMobileWebAppCapable: 'yes',
+  mobileWebAppCapable: 'yes',
+  appleTouchIcon: '/favicon.ico',
+  image: '/favicon.ico',
 }
-
+export const viewport = {
+  themeColor: '#ff0040',
+  mobileWebAppStatusBarStyle: '#ff0040',
+  msapplicationNavbuttonColor: '#ff0040',
+  appleMobileWebAppStatusBarStyle: '#ff0040',
+  colorScheme: 'dark light',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  viewportWidth: 'device-width',
+}
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
