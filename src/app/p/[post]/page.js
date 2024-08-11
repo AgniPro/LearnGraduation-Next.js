@@ -10,8 +10,8 @@ import ReadTime from "@/components/LayoutComponents/ReadTime";
 async function getPostData(post) {
   const res = await fetch(`${api}/api/p/${post}`, {
     headers: {
-      cache: 'no-store',
-      credentials: 'include',
+       'Cache-Control': 'no-store',
+      'credentials': 'include',
     }
   });
   if(!res.ok){
