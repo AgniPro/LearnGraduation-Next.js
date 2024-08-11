@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState ,Suspense} from "react";
+import React, { useEffect, useState } from "react";
 import avatarDefault from "../../../public/assets/avatar.png";
 import Link from "next/link";
 import Cookies from "js-cookie";
@@ -13,22 +13,24 @@ import ResetPassword from "../Auth/ResetPassword";
 import { useSearchParams } from 'next/navigation'
 
 const HeaderProfile=()=>{
-    const searchParams = useSearchParams();
+    const searchParams = typeof window !== 'undefined' ? useSearchParams() : null;
     const [authCheckbox, setAuthCheckbox] = useState(false);
     const [open, setOpen] = useState(false);
     const [route, setRoute] = useState(null);
     const [isAuthenticated, setIsAuth] = useState(null);
     const [user, setUser] = useState({});
     const { data, isSuccess, error } = useGetUserQuery();
-    const i = searchParams.get('i');
-    const t = searchParams.get('t');
     useEffect(() => {
-        if (i!== null && t!== null ) {
-            setAuthCheckbox(true);
-            setRoute("Reset Password");
-            setOpen(true);
+        if (searchParams) {
+            const i = searchParams.get('i');
+            const t = searchParams.get('t');
+            if (i !== null && t !== null) {
+                setAuthCheckbox(true);
+                setRoute("Reset Password");
+                setOpen(true);
+            }
         }
-    }, [i, t]);
+    }, [searchParams]);
 
     useEffect(() => {
         if (data && isSuccess) {
@@ -81,9 +83,8 @@ const HeaderProfile=()=>{
         );
     }
 
-    return(
+    return( 
         <div className="widget Profile" data-version={2} id="Profile1">
-            <Suspense fallback={<div>Loading...</div>}></Suspense>
         <div className="wPrf tm">
             <div className="prfS fixLs">
                 <div className="prfH fixH fixT" data-text="Account">
