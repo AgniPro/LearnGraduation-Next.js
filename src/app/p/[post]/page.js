@@ -2,7 +2,7 @@
 import Like from "@/components/LayoutComponents/Like";
 import Link from "next/link";
 import Pcomment from "@/components/LayoutComponents/Pcomment";
-import { api, date} from '@/app/Contexts'
+import { api, date } from '@/app/Contexts'
 import { Pshare, Share } from "@/components/LayoutComponents/Pshare";
 import { redirect } from "next/navigation";
 import ReadTime from "@/components/LayoutComponents/ReadTime";
@@ -15,7 +15,7 @@ async function getPostData(post) {
       'credentials': 'include',
     }
   });
-  if(!res.ok){
+  if (!res.ok) {
     redirect("/404")
   }
   return res.json();
@@ -38,9 +38,9 @@ export default async function Page({ params: { post } }) {
             </div>
             {postcontent.categories[0] ?
               <div className="lb" itemProp="itemListElement" itemScope="itemscope" itemType="https://schema.org/ListItem">
-              <Link href={postcontent.categories[0]} itemProp="item"><span itemProp="name">{postcontent.categories[0]}</span></Link>
-              <meta content={2} itemProp="position" />
-            </div>: <></>}
+                <Link href={postcontent.categories[0]} itemProp="item"><span itemProp="name">{postcontent.categories[0]}</span></Link>
+                <meta content={2} itemProp="position" />
+              </div> : <></>}
           </div>
           <h1 className="pTtl aTtl sml itm">
             <span>
@@ -60,7 +60,7 @@ export default async function Page({ params: { post } }) {
                 <bdi className="pDt pIn">
                   <time className="aTtmp pTtmp upd" data-date={pubinfo} data-text={`${month}, ${year}`} dateTime={postcontent.updatedAt} title={`${pubinfo} ${month}, ${year}`} />
                 </bdi>
-                <div className="pRd pIn"><ReadTime content={postcontent.content}/></div>
+                <div className="pRd pIn"><ReadTime content={postcontent.content} /></div>
               </div>
             </div>
             <div className="pCm">

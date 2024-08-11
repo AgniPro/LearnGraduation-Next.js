@@ -15,6 +15,7 @@ export const date = (pdate, udate) => {
     var date = new Date(fdate);
     const timeDiff = new Date() - date;
     let dTime;
+    let year='';
     if (timeDiff < 60000) {
       dTime = Math.floor(timeDiff / 1000) + " second ago"
     } else if (timeDiff < 3600000) {
@@ -24,8 +25,9 @@ export const date = (pdate, udate) => {
     } else {
       const options = { month: 'short', day: 'numeric' };
       dTime = date.toLocaleDateString('en-US', options);
+      year = date.getFullYear();
     }
-    return { "pubinfo": pubinfo, "month":dTime, "year": date.getFullYear() };
+    return { "pubinfo": pubinfo, "month":dTime, "year": year };
   } else {
     return { "pubinfo": 0, "month": 0, "year": 0 };
   }

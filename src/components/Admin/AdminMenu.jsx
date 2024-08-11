@@ -235,7 +235,7 @@ function AdminMenu() {
                 <li>
                   <Link
                     className="a"
-                    href="https://learngraduation.blogspot.com/p/about-me.html"
+                    href="/admin/all-posts"
                     itemProp="url"
                   >
                     <svg className="line" viewBox="0 0 24 24">

@@ -4,6 +4,7 @@ import { api, date } from '@/app/Contexts';
 import toast from 'react-hot-toast';
 import avatarDefault from "../../../public/assets/avatar.png";
 import { useGetUserQuery } from '@/lib/services/auth';
+import DeleteBtn from '../Admin/DeleteBtn';
 
 function Pcomment(props) {
     const { data, refetch, isSuccess, error } = useGetUserQuery();
@@ -54,10 +55,6 @@ function Pcomment(props) {
         toast.error("Login to Comment")
     };
 
-    const deleteComment = () => {
-        toast.success('this feature is comming soon')
-    }
-
     return (
         <div className="pCmnts" id="comment">
             <input className="cmSh fixi hidden" id="forComments" type="checkbox" />
@@ -93,14 +90,14 @@ function Pcomment(props) {
                                                     </div>
                                                 </div>
                                                 <div className="cmIn">
-                                                    <div className="cmBd" itemScope="itemscope" itemType="https://schema.org/Comment">
+                                                    <div className="cmBd" itemScope="true" itemType="https://schema.org/Comment">
                                                         <div className="cmHr">
-                                                            <span className="n" itemProp="author" itemScope="itemscope" itemType="https://schema.org/Person">
+                                                            <span className="n" itemProp="author" itemScope='true' itemType="https://schema.org/Person">
                                                                 <bdi itemProp="name">
                                                                     {comment.author?.name ? comment.author.name : "Unknown"} {comment.author?.role === 'admin' ? '✅' : ''}
                                                                 </bdi>
                                                             </span>
-                                                            <span className="d dtTm" data-datetime={comment.createdAt}>&#183; {month}</span>
+                                                            <span className="d dtTm" data-datetime={comment.createdAt} itemprop="datePublished">&#183; {month}</span>
                                                         </div>
                                                         <div className="cmCo" itemProp="text">
                                                             {comment.content}
@@ -108,8 +105,8 @@ function Pcomment(props) {
                                                     </div>
                                                 </div>
                                                 {user && data.user.role === 'admin' ? (
-                                                    <label className="cmAv" style={{ right: '12px', left: 'unset' }} onClick={deleteComment}>
-                                                        🗑️{data.user.role}
+                                                    <label className="cmAv" style={{ right: '12px', left: 'unset' }}>
+                                                        <DeleteBtn setCcontent={setCcontent} itemId={comment._id} itemType="comment" postId={props.pcomment._id} />
                                                     </label>) : ''}
                                             </li>
                                         )

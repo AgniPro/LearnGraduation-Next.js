@@ -3,12 +3,6 @@ import Mobilemenu from "@/components/LayoutComponents/Mobilemenu";
 import Notification from "@/components/LayoutComponents/Notification";
 import ProfileMenu from "@/components/Profile/ProfileMenu";
 
-export const metadata = {
-  title: "Profile",
-  description: "LearnGraduation is owned and dev. by AgniPro",
-  keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes',
-};
-
 export default function AdminLayout({ children }) {
   return (<>
     <ProfileMenu />
@@ -30,3 +24,8 @@ export default function AdminLayout({ children }) {
     </>    
   );
 }
+export const metadata = {
+  title: "Profile",
+  description: "LearnGraduation is owned and dev. by AgniPro",
+  keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes',
+};

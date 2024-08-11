@@ -1,5 +1,6 @@
-import AllPosts from "@/components/Admin/AllPosts";
+
 import AllUsers from "@/components/Admin/AllUsers";
+import RecentPosts from "@/components/Admin/RecentPosts";
 import Link from "next/link";
 
 const Page = async () => {
@@ -18,9 +19,17 @@ const Page = async () => {
       </div><br />
       <AllUsers />
       <div className="section" id="main-widget">
-        <AllPosts />
+        <RecentPosts />
       </div>
     </>
   );
 };
 export default Page;
+
+export async function generateMetadata({ params: { post } }) {
+  return {
+    title: `Admin Dashboard | LearnGraduation`,
+    description: `Admin Dashboard`,
+    keywords: `Admin Dashboard`,
+  };
+}
