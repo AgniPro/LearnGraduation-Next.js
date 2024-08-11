@@ -9,8 +9,9 @@ import ReadTime from "@/components/LayoutComponents/ReadTime";
 
 async function getPostData(post) {
   const res = await fetch(`${api}/api/p/${post}`, {
+    next: { revalidate: 0 },
     headers: {
-       'Cache-Control': 'no-store',
+      'Cache-Control': 'no-store',
       'credentials': 'include',
     }
   });
