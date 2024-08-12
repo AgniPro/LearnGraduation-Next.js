@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ToggleCheckbox from "../LayoutComponents/TogleCheckbox";
 function AdminMenu() {
   return (
     <div className="blogMn">
@@ -128,6 +129,7 @@ function AdminMenu() {
                 itemType="https://schema.org/SiteNavigationElement"
               >
                 <li className="br">
+                <ToggleCheckbox htmlFor="offNav">
                   <Link
                     className="a"
                     href="/admin"
@@ -136,7 +138,7 @@ function AdminMenu() {
                     <span className="n" itemProp="name">
                       Dashboard
                     </span>
-                  </Link>
+                  </Link></ToggleCheckbox>
                 </li>
                 <li className="drp">
                   <input
@@ -155,6 +157,7 @@ function AdminMenu() {
                     </svg>
                   </label>
                   <ul>
+                  <ToggleCheckbox htmlFor="offNav">
                     <li itemProp="name">
                       <Link
                         href="/admin/create-post"
@@ -178,7 +181,7 @@ function AdminMenu() {
                       >
                         Create Quiz
                       </Link>
-                    </li>
+                    </li></ToggleCheckbox>
                   </ul>
                 </li>
                 <li className="drp br">
@@ -198,6 +201,7 @@ function AdminMenu() {
                     </svg>
                   </label>
                   <ul>
+                  <ToggleCheckbox htmlFor="offNav">
                     <li itemProp="name">
                       <Link href="#" itemProp="url">
                         Home Banner
@@ -217,10 +221,11 @@ function AdminMenu() {
                       <Link href="#" itemProp="url">
                         Social Links
                       </Link>
-                    </li>
+                    </li></ToggleCheckbox>
                   </ul>
                 </li>
                 <li>
+                <ToggleCheckbox htmlFor="offNav">
                   <Link
                     className="a"
                     href="/mocktest"
@@ -230,9 +235,10 @@ function AdminMenu() {
                     <span className="n" itemProp="name">
                       Manage Users
                     </span>
-                  </Link>
+                  </Link></ToggleCheckbox>
                 </li>
                 <li>
+                <ToggleCheckbox htmlFor="offNav">
                   <Link
                     className="a"
                     href="/admin/all-posts"
@@ -264,9 +270,10 @@ function AdminMenu() {
                     <span className="n" itemProp="name">
                       All Posts
                     </span>
-                  </Link>
+                  </Link></ToggleCheckbox>
                 </li>
                 <li className="br">
+                <ToggleCheckbox htmlFor="offNav">
                   <Link
                     className="a"
                     href="https://learngraduation.blogspot.com/p/contact.html"
@@ -276,9 +283,10 @@ function AdminMenu() {
                     <span className="n" itemProp="name">
                       All courses
                     </span>
-                  </Link>
+                  </Link></ToggleCheckbox>
                 </li>
                 <li className="br">
+                <ToggleCheckbox htmlFor="offNav">
                   <Link
                     className="a"
                     href="https://learngraduation.blogspot.com/p/become-creator.html"
@@ -288,9 +296,10 @@ function AdminMenu() {
                     <span className="n" itemProp="name">
                       Analytics
                     </span>
-                  </Link>
+                  </Link></ToggleCheckbox>
                 </li>
                 <li className="br">
+                <ToggleCheckbox htmlFor="offNav">
                   <Link
                     className="a"
                     href=""
@@ -300,7 +309,7 @@ function AdminMenu() {
                     <span className="n" itemProp="name">
                       Redis Catch
                     </span>
-                  </Link>
+                  </Link></ToggleCheckbox>
                 </li>
                 <li className="drp mr br">
                   <input
@@ -320,13 +329,14 @@ function AdminMenu() {
                   </label>
                   <ul>
                     <li itemProp="name">
+                    <ToggleCheckbox htmlFor="offNav">
                       <Link
                         className="new"
                         href="/search/label/Notes"
                         itemProp="url"
                       >
                         Try Notes{" "}
-                      </Link>
+                      </Link></ToggleCheckbox>
                     </li>
                   </ul>
                 </li>

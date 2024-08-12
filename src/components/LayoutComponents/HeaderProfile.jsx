@@ -146,7 +146,7 @@ const HeaderProfile=()=>{
                                             <Link
                                                 className="l extL"
                                                 title="Purchase Courses"
-                                                href={"/my-courses"} onClick={() => document.getElementById('offPrf').checked = false}
+                                                href={""} onClick={() => document.getElementById('offPrf').checked = false}
                                             >
                                                 <bdi>Purchase Courses</bdi>
                                             </Link>
@@ -158,7 +158,7 @@ const HeaderProfile=()=>{
                                             <Link
                                                 className="l extL"
                                                 title="My Likes"
-                                                href={"/likes"} onClick={() => document.getElementById('offPrf').checked = false}
+                                                href={"/profile/likes"} onClick={() => document.getElementById('offPrf').checked = false}
                                             >
                                                 <bdi>My Likes</bdi>
                                             </Link>

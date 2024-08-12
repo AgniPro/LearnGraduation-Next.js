@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ToggleCheckbox from "../LayoutComponents/TogleCheckbox";
 function ProfileMenu() {
     return (
         <div className="blogMn">
@@ -128,6 +129,7 @@ function ProfileMenu() {
                                 itemType="https://schema.org/SiteNavigationElement"
                             >
                                 <li className="br">
+                                <ToggleCheckbox htmlFor="offNav">
                                     <Link
                                         className="a"
                                         href="/profile"
@@ -141,7 +143,7 @@ function ProfileMenu() {
                                         <span className="n" itemProp="name">
                                             Your Information
                                         </span>
-                                    </Link>
+                                    </Link></ToggleCheckbox>
                                 </li>
                                 <li className="drp br">
                                     <input
@@ -161,33 +163,37 @@ function ProfileMenu() {
                                     </label>
                                     <ul>
                                         <li itemProp="name">
+                                        <ToggleCheckbox htmlFor="offNav">
                                             <Link
                                                 href="/profile/change-password"
                                                 itemProp="url"
                                             >
                                                 Change Password
-                                            </Link>
+                                            </Link></ToggleCheckbox>
                                         </li>
                                         <li itemProp="name">
+                                        <ToggleCheckbox htmlFor="offNav">
                                             <Link
                                                 href=""
                                                 itemProp="url"
                                             >
                                                 ....
-                                            </Link>
+                                            </Link></ToggleCheckbox>
                                         </li>
                                         <li itemProp="name">
+                                        <ToggleCheckbox htmlFor="offNav">
                                             <Link
                                                 href=""
                                                 itemProp="url"
                                             >
                                                 .....
-                                            </Link>
+                                            </Link></ToggleCheckbox>
                                         </li>
                                     </ul>
                                 </li>
                                
                                 <li>
+                                <ToggleCheckbox htmlFor="offNav">
                                     <Link
                                         className="a"
                                         href="/"
@@ -196,9 +202,10 @@ function ProfileMenu() {
                                         <span className="n" itemProp="name">
                                             My Courses
                                         </span>
-                                    </Link>
+                                    </Link></ToggleCheckbox>
                                 </li>
                                 <li>
+                                <ToggleCheckbox htmlFor="offNav">
                                     <Link
                                         className="a"
                                         href="/profile/likes"
@@ -208,9 +215,10 @@ function ProfileMenu() {
                                         <span className="n" itemProp="name">
                                             My Likes
                                         </span>
-                                    </Link>
+                                    </Link></ToggleCheckbox>
                                 </li>
                                 <li className="br">
+                                <ToggleCheckbox htmlFor="offNav">
                                     <Link
                                         className="a"
                                         href="https://learngraduation.blogspot.com/p/contact.html"
@@ -219,9 +227,10 @@ function ProfileMenu() {
                                         <span className="n" itemProp="name">
                                             Payments
                                         </span>
-                                    </Link>
+                                    </Link></ToggleCheckbox>
                                 </li>
                                 <li className="br">
+                                <ToggleCheckbox htmlFor="offNav">
                                     <Link
                                         className="a"
                                         href="https://learngraduation.blogspot.com/p/become-creator.html"
@@ -231,9 +240,10 @@ function ProfileMenu() {
                                         <span className="n" itemProp="name">
                                          Chat Groups
                                         </span>
-                                    </Link>
+                                    </Link></ToggleCheckbox>
                                 </li>
                                 <li className="br">
+                                <ToggleCheckbox htmlFor="offNav">
                                     <Link
                                         className="a"
                                         href=""
@@ -243,7 +253,7 @@ function ProfileMenu() {
                                         <span className="n" itemProp="name">
                                             Help Center
                                         </span>
-                                    </Link>
+                                    </Link></ToggleCheckbox>
                                 </li>
                                 <li className="drp mr br">
                                     <input
@@ -263,13 +273,14 @@ function ProfileMenu() {
                                     </label>
                                     <ul>
                                         <li itemProp="name">
+                                        <ToggleCheckbox htmlFor="offNav">
                                             <Link
                                                 className="new"
                                                 href="/"
                                                 itemProp="url"
                                             >
                                                 Try Notes{" "}
-                                            </Link>
+                                            </Link></ToggleCheckbox>
                                         </li>
                                     </ul>
                                 </li>

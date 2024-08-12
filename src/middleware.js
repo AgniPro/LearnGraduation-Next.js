@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server'
 
 // Paths that require authentication
-const authPaths = ['/profile', '/profile/change-password'];
+const authPaths = ['/profile', '/profile/change-password','/profile/likes'];
 
 // Admin-only paths
-const adminPaths = ['/admin/dashboard', '/admin', '/admin/create-post', '/admin/create-course'];
+const adminPaths = ['/admin', '/admin/create-post', '/admin/create-course','/admin/all-posts',];
 
 export async function middleware(request) {
   try {
