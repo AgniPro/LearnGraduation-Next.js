@@ -105,5 +105,14 @@ export async function generateMetadata({ params: { post } }) {
     title: `${postcontent.title}`,
     description: `${postcontent.description}`,
     keywords: `${postcontent.tags}`,
+    image: `${postcontent.image}`,
+   openGraph: {
+    images: [
+      {
+        url: `${postcontent.image}`,
+        alt: `${postcontent.title}`,
+      },
+    ],
+  },
   };
 }

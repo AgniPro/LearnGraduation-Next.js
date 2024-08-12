@@ -18,6 +18,13 @@ export const metadata = {
   mobileWebAppCapable: 'yes',
   appleTouchIcon: '/favicon.ico',
   image: '/favicon.ico',
+  openGraph: {
+  images: [
+    {
+      url: `https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidOsqxUQiknMZjT7JD5YX_5Zri5c-3kiUJsxKGYOntRjCclaHxzEnRRJHzZA6vQ5OQr0ZIVlQLO9s8GQ1va_mUtq79MrfAkno_CEsjDTYtay8IFiTL0mR4aIgDtEnBTY73e7AGdGIb56mwbJQYeoV3f2veVTwu_ASdS_AodBgdCGUt0SjKAZ_U6jQ_/s1600/learngraduation-bann.jpg`,
+      alt: `LearnGraduation`,
+    },
+  ],},
 }
 export const viewport = {
   themeColor: '#ff0040',
