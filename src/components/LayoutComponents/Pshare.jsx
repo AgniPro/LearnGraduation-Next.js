@@ -76,6 +76,7 @@ function Pshare(props) {
 export { Pshare };
 
 function Share(props) {
+  const mailtoLink = `mailto:?subject=${encodeURIComponent(props.title)}&body=${encodeURIComponent(`<div><h1>${props.title}</h1><p>Check out this link:</p><a href="${props.link}">${props.link}</a><img src=${props.image} alt="Example Image" /></div>`)}`;
   return (
     <div className="shBr fixL">
       <div className="shBri fixLi">
@@ -130,28 +131,14 @@ function Share(props) {
                 </Link>
               </div>
               <div data-text="Email">
-                <Link
+              <a
                   aria-label="Email"
-                  href={`mailto:?subject=${encodeURIComponent(props.title)}&body=${encodeURIComponent(`
-   <html>
-      <body style="font-family: Arial, sans-serif; line-height: 1.6;">
-        <div style="border: 1px solid #ddd; padding: 20px; max-width: 600px; margin: auto;">
-          <h2 style="color: #333;">${props.title}</h2>
-          <p style="color: #555;">Check out this link:</p>
-          <a href="${props.link}" style="color: #1a0dab; text-decoration: none;">${props.link}</a>
-          <br/><br/>
-          <img src="${props.image}" alt="${props.title}" style="max-width: 100%; height: auto; border: 1px solid #ddd; padding: 10px;"/>
-          <br/><br/>
-          <p style="color: #555;">${props.description}</p>
-          <a href="${props.link}" style="color: #1a0dab; text-decoration: none;">Read More</a>
-        </div>
-      </body>
-    </html>
-  `)}`}
+                  href={mailtoLink}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg viewBox="0 0 500 500"><path d="M468.051,222.657c0-12.724-5.27-24.257-13.717-32.527 L282.253,45.304c-17.811-17.807-46.702-17.807-64.505,0L45.666,190.129c-8.448,8.271-13.717,19.803-13.717,32.527v209.054 c0,20.079,16.264,36.341,36.34,36.341h363.421c20.078,0,36.34-16.262,36.34-36.341V222.657z M124.621,186.402h250.758 c11.081,0,19.987,8.905,19.987,19.991v34.523c-0.088,4.359-1.818,8.631-5.181,11.997l-55.966,56.419l83.224,83.127 c6.904,6.904,6.904,18.081,0,24.985s-18.085,6.904-24.985,0l-85.676-85.672H193.034l-85.492,85.672 c-6.907,6.904-18.081,6.904-24.985,0c-6.906-6.904-6.906-18.081,0-24.985l83.131-83.127l-55.875-56.419 c-3.638-3.638-5.363-8.358-5.181-13.177v-33.343C104.632,195.307,113.537,186.402,124.621,186.402z" /></svg>
-                </Link>
+                </a>
               </div>
 
             </div>
