@@ -4,8 +4,10 @@ import Like from "../LayoutComponents/Like";
 import style from '../../app/admin/dashboard.module.css';
 import DeleteBtn from "./DeleteBtn";
 
-async function getPostData() {
-    const res = await fetch(api + "/api/get-posts?skip=0", {
+async function getPostData(skip,limit) {
+    skip = skip || 0;
+    limit = limit ||0;
+    const res = await fetch(`${api}/api/get-posts?skip=${skip}&limit=${limit}`, {
         method: 'GET',
         next: { revalidate: 0 },
         headers: {
@@ -16,8 +18,8 @@ async function getPostData() {
     return res.json();
 }
 
-const RecentPosts = async () => {
-    const postData = await getPostData();
+const RecentPosts = async ({limit,skip}) => {
+    const postData = await getPostData(skip,limit);
     return (
         <div style={{ width: '380px' }}>
             <span className="aTtl">All Posts</span>
@@ -50,7 +52,7 @@ const RecentPosts = async () => {
                                     </div>) : <></>}
                             </div>
                             <h2 className="pTtl aTtl sml">
-                                <Link data-text={item.title} href={"/admin/edit-post?purl=" + item.url} rel="bookmark">
+                                <Link className={style.ttle} data-text={item.title} href={"/admin/edit-post?purl=" + item.url} rel="bookmark">
                                     {item.title}
                                 </Link>
                             </h2>

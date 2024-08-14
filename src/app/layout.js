@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
   images: [
     {
-      url: `https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidOsqxUQiknMZjT7JD5YX_5Zri5c-3kiUJsxKGYOntRjCclaHxzEnRRJHzZA6vQ5OQr0ZIVlQLO9s8GQ1va_mUtq79MrfAkno_CEsjDTYtay8IFiTL0mR4aIgDtEnBTY73e7AGdGIb56mwbJQYeoV3f2veVTwu_ASdS_AodBgdCGUt0SjKAZ_U6jQ_/s1600/learngraduation-bann.jpg`,
+      url: `https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFI8coJMerfzB4fU1QjX_bkx2EdOAMG16Ds5GaXaMhAxm3cOj36PEIyamcyR6v_kcyq0y5lYPsJuKJg6k_Y-NiQSbJdQk4t-kD-lL1ejSftzDdLTR0fjpY1PhlagoJPs8xnlc-yWs2KT5fTms__kJ4TptRsdwsqBX-8eT6z91oIteGaeMA04JFjl3p/s1600/learnbanner.png`,
       alt: `LearnGraduation`,
     },
   ],},

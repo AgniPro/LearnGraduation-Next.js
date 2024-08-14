@@ -19,7 +19,7 @@ const Page = async () => {
       </div><br />
       <AllUsers />
       <div className="section" id="main-widget">
-        <RecentPosts />
+        <RecentPosts limit={4} />
       </div>
     </>
   );

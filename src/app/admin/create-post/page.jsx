@@ -47,11 +47,6 @@ function Compose() {
     }))
   };
 
-
-  function handleEditorChange(value, event) {
-    setContent(value)
-  }
-
   const back = () => {
 
   }
@@ -139,7 +134,7 @@ function Compose() {
                             theme="vs-dark"
                             defaultLanguage="html"
                             value={content}
-                            onChange={handleEditorChange}
+                            onChange={(e) => setContent(e)}
                           />
                         </div>
                       </div>

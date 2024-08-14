@@ -1,21 +1,8 @@
-import { api } from "@/app/Contexts";
-import LattestPost from "@/components/Home/LattestPost";
 import Link from "next/link";
-async function getPostData() {
-    const res = await fetch(api+ "/api/get-posts?skip=0", {
-        method: 'GET',
-        next: { revalidate: 0 },
-        headers: {
-            'Content-Type': 'application/json',
-            'cache-control': 'no-cache',
-        },
-    });
-    return res.json();
-}
+import RecentPosts from "@/components/Admin/RecentPosts";
+
 const Page = async () => {
-    const postData = await getPostData();
-  return (
-    <>
+   return <>
       <div className="brdCmb" itemScope="itemscope" itemType="https://schema.org/BreadcrumbList">
         <div className="hm" itemProp="itemListElement" itemScope="itemscope" itemType="https://schema.org/ListItem">
           <Link href="/" itemProp="item"><span itemProp="name">Home</span></Link>
@@ -30,11 +17,8 @@ const Page = async () => {
           <meta content={3} itemProp="position" />
         </div>
       </div><br />
-      <div className="section" id="main-widget">
-      <LattestPost postData={postData} />
-      </div>
+     <RecentPosts limit={10}/>
     </>
-  );
 };
 export default Page;
 

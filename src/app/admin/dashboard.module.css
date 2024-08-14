@@ -39,3 +39,11 @@
 .delpst:hover {
     background: #ff6c6c;
 }
+a.ttle {
+  white-space: nowrap;
+  white-space-collapse: collapse;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  max-width: 60%;
+  display: block;
+}
