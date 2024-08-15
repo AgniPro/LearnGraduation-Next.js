@@ -6,6 +6,7 @@ import { api, date } from '@/app/Contexts'
 import { Pshare, Share } from "@/components/LayoutComponents/Pshare";
 import { redirect } from "next/navigation";
 import ReadTime from "@/components/LayoutComponents/ReadTime";
+import { Suspense } from "react";
 
 async function getPostData(post) {
   const res = await fetch(`${api}/api/p/${post}`, {
@@ -27,6 +28,7 @@ export default async function Page({ params: { post } }) {
   const { pubinfo, month, year } = date(postcontent?.createdAt, postcontent?.updatedAt);
   const url = `${process.env.NEXT_PUBLIC_URL}/p/${postcontent.url}`;
   return (
+    <Suspense fallback={'loading...'}>
     <div className="widget Blog" data-version={2} id="Blog1">
       <div className="blogPts">
         <article id="article" className="ntry ps post">
@@ -96,6 +98,7 @@ export default async function Page({ params: { post } }) {
         </div>
       </div>
     </div>
+    </Suspense>
   )
 
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Toc from "./Toc";
 import BookMark from "../Svg/BookMark";
 import PopularPost from "./PopularPost";
@@ -22,11 +22,35 @@ export default function Sidebar() {
   { title: "Chemistry", noP: 4 },
   { title: "VBU", noP: 4 },
   ]
+  const articles = new Array(3).fill(null);
   return (
     <aside className="blogItm sidebar">
       <div className="sideIn">
         <div className="section" id="side-widget">
-          <PopularPost />
+          <Suspense fallback={
+            <div className="itemPp" role="feed">
+              <article className="itm mostP" id="popular-post-loading">
+                <div className="iThmb pThmb">
+                  <div className="thmb" />
+                </div>
+                <div className="iCtnt">
+                  <div className="iInr">
+                    <h3 className="iTtl aTtl pThmb" style={{ height: '42px', borderRadius: '12px' }} />
+                    <div className="pSnpt pThmb" style={{ height: '12px', borderRadius: '12px' }} />
+                  </div>
+                </div>
+              </article>
+              {articles.map((_, index) => (
+                <article className="itm">
+                  <div className="iCtnt">
+                    <div className="iInr pThmb" style={{ height: '42px', borderRadius: '12px' }} />
+                  </div>
+                  <div className="iInf pSml pThmb" style={{ height: '12px', borderRadius: '12px' }}>
+                  </div>
+                </article>
+              ))}
+            </div>
+          }><PopularPost /></Suspense>
           <div className="widget Label" data-version={2} id="Label00">
             <h3 className="title">
               Labels
@@ -60,7 +84,7 @@ export default function Sidebar() {
                     </li>
                   ))}
                 </ul>
-                <label aria-label="Show labels" className="lbM" data-hide="Show less" data-show="Show more" data-text={`(+${labels.length-8})`} htmlFor="lbAl-2" role="button" />
+                <label aria-label="Show labels" className="lbM" data-hide="Show less" data-show="Show more" data-text={`(+${labels.length - 8})`} htmlFor="lbAl-2" role="button" />
               </div>
             </div>
           </div>
@@ -76,3 +100,4 @@ export default function Sidebar() {
     </aside>
   )
 }
+
