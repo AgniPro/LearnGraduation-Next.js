@@ -97,7 +97,7 @@ function Pcomment(props) {
                                                                     {comment.author?.name ? comment.author.name : "Unknown"} {comment.author?.role === 'admin' ? '✅' : ''}
                                                                 </bdi>
                                                             </span>
-                                                            <span className="d dtTm" data-datetime={new Date(comment?.createdAt).toISOString()} itemprop="datePublished">&#183; {month}</span>
+                                                            <span className="d dtTm" data-datetime={new Date(comment?.createdAt).toISOString()} content={new Date(comment?.createdAt).toISOString()} itemprop="datePublished">&#183; {month}</span>
                                                         </div>
                                                         <div className="cmCo" itemProp="text">
                                                             {comment.content}
