@@ -25,6 +25,9 @@ export const metadata = {
       alt: `LearnGraduation`,
     },
   ],},
+  alternates: {
+    canonical: "/",
+  },
 }
 export const viewport = {
   themeColor: '#ff0040',
