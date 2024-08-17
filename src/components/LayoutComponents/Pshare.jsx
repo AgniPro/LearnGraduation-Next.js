@@ -76,7 +76,7 @@ function Pshare(props) {
 export { Pshare };
 
 function Share(props) {
-  const mailtoLink = `mailto:?subject=${encodeURIComponent(props.title)}&body=${encodeURIComponent(`<div><h1>${props.title}</h1><p>Check out this link:</p><a href="${props.link}">${props.link}</a><img src=${props.image} alt="Example Image" /></div>`)}`;
+  const mailtoLink = `mailto:?subject=${encodeURIComponent('Check this out – '+props.title)}&body=${encodeURIComponent(`${props.title}%0A%0ACheck out this link:${props.link}`)}`;
   return (
     <div className="shBr fixL">
       <div className="shBri fixLi">

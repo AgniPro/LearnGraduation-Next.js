@@ -1,9 +1,10 @@
 import React from 'react';
 import pcss from '../app/page.module.css'
+import Menu from '@/components/LayoutComponents/Menu';
 
 const Page = () => {
     return (
-        <>
+        <><Menu />
             <section className={pcss.page_404}>
                 <div className={pcss.four_zero_four_bg}>
                     <h1 style={{ color: "#ff8401" }} className={pcss.htag}>404</h1>

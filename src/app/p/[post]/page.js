@@ -6,7 +6,6 @@ import { api, date } from '@/app/Contexts'
 import { Pshare, Share } from "@/components/LayoutComponents/Pshare";
 import { redirect } from "next/navigation";
 import ReadTime from "@/components/LayoutComponents/ReadTime";
-import { Suspense } from "react";
 
 async function getPostData(post) {
   const res = await fetch(`${api}/api/p/${post}`, {
@@ -28,7 +27,6 @@ export default async function Page({ params: { post } }) {
   const { pubinfo, month, year } = date(postcontent?.createdAt, postcontent?.updatedAt);
   const url = `${process.env.NEXT_PUBLIC_URL}/p/${postcontent.url}`;
   return (
-    <Suspense fallback={'loading...'}>
     <div className="widget Blog" data-version={2} id="Blog1">
       <div className="blogPts">
         <article id="article" className="ntry ps post">
@@ -52,7 +50,6 @@ export default async function Page({ params: { post } }) {
           <div className="pDesc">{postcontent.description}</div>
           <div className="pInf pSml ps">
             <div className="pIm">
-
               <div className="im lazy lazy loaded" data-style={`background-image: url(${postcontent.author?.avatar.url})`} lazied="true" style={{ backgroundImage: `url(${postcontent.author?.avatar.url})` }}>
               </div>
             </div>
@@ -81,8 +78,10 @@ export default async function Page({ params: { post } }) {
             <div className="pAd">
             </div>
             <div className="pEnt" id={postcontent._id}>
+              <div class="zmImg"><img alt={postcontent.title} class="fullImg"
+                src={postcontent.image} lazied={true} >
+              </img></div>
               <div className="pS post-body postBody" id="postBody" dangerouslySetInnerHTML={{ __html: postcontent.content }} />
-
               <div className="pAd">
               </div>
               <Pshare link={url} />
@@ -98,7 +97,6 @@ export default async function Page({ params: { post } }) {
         </div>
       </div>
     </div>
-    </Suspense>
   )
 
 }
@@ -109,13 +107,13 @@ export async function generateMetadata({ params: { post } }) {
     description: `${postcontent.description}`,
     keywords: `${postcontent.tags}`,
     image: `${postcontent.image}`,
-   openGraph: {
-    images: [
-      {
-        url: `${postcontent.image}`,
-        alt: `${postcontent.title}`,
-      },
-    ],
-  },
+    openGraph: {
+      images: [
+        {
+          url: `${postcontent.image}`,
+          alt: `${postcontent.title}`,
+        },
+      ],
+    },
   };
 }
