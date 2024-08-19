@@ -3,7 +3,7 @@ export default async function sitemap() {
     const posts = await response.json();
 
     const postEntries = posts.map((post) => ({
-        url: `${process.env.NEXT_PUBLIC_URL}/posts/${post.url}`,
+        url: `${process.env.NEXT_PUBLIC_URL}/p/${post.url}`,
         lastModified: new Date(post.updatedAt).toISOString(),
         changefreq: 'daily',
         priority: 0.7,
