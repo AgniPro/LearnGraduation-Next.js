@@ -1,7 +1,7 @@
 
 export default async function sitemap() {
     const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/get-posts?skip=0&limit=1000`);
-    const { posts } = await response.json();
+    const posts  = await response.json();
 
     const postEntries = posts.map((post) => ({
         url: `${process.env.NEXT_PUBLIC_URL}/posts/${post.url}`,
