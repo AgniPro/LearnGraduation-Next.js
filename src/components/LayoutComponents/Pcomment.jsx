@@ -9,6 +9,8 @@ import DeleteBtn from '../Admin/DeleteBtn';
 function Pcomment(props) {
     const { data, refetch, isSuccess, error } = useGetUserQuery();
     const [user, setUser] = useState("");
+    const [cmntType, setCmntType] = useState('reply');
+    const [replyID, setReplyId] = useState('');
     useEffect(() => {
         if (data && isSuccess) {
             setUser(data.user.name);
@@ -23,35 +25,44 @@ function Pcomment(props) {
 
     const [cContent, setCcontent] = useState([]);
 
-    const submitComment = async () => {
+    const submitComment = async (replyToId = null) => {
         let content = document.getElementById('addComment').value;
         if (!content) {
-            toast.error('write something to comment')
+            toast.error('Write something to comment');
             return;
         }
         try {
-            fetch(`${api}/api/p/${props.pcomment._id}/comment`, {
+            const endpoint = cmntType === 'reply'
+                ? `${api}/api/p/${props.pcomment._id}/comment/${replyToId}/reply`
+                : `${api}/api/p/${props.pcomment._id}/comment`;
+
+            const response = await fetch(endpoint, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 credentials: "include",
-                body: JSON.stringify({
-                    content: content
-                })
-            }).then(response => response.json().then(data => {
+                body: JSON.stringify({ content })
+            });
+
+            const data = await response.json();
+            if (response.ok) {
                 toast.success("Comment posted");
                 setCcontent(data.comments);
-                document.getElementById('addComment').value = ""
-            })).catch(error => {
-                toast.error("Please try again later")
-            })
+                document.getElementById('addComment').value = "";
+            } else {
+                toast.error(data.message || "Please try again later");
+            }
         } catch (error) {
             toast.error("Something went wrong");
         }
-    }
+    };
 
     const login_toComment = () => {
+        if (user) {
+            setCmntType('comment');
+            return
+        }
         toast.error("Login to Comment")
     };
 
@@ -102,6 +113,54 @@ function Pcomment(props) {
                                                         <div className="cmCo" itemProp="text">
                                                             {comment.content}
                                                         </div>
+
+                                                    </div>
+                                                    <input className="cmRi hidden" id={'to-' + comment._id} type="checkbox" />
+                                                    <div className="cmRp">
+                                                        {comment.reply > 0 ? (
+                                                            <div className="cmTh" id={comment._id + "-rt"}>
+                                                                <label aria-label="View 2 replies" className="thTg" data-text="Hide replies" htmlFor={'to-' + comment._id} />
+                                                                <ol className="thCh">
+                                                                    <li className="c" id="c3297661718408759007">
+                                                                        <div className="cmAv">
+                                                                            <div className="im lazy loaded" data-style="background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1EwFaW4JRBIyt5ofXFLa75xEfbvLheYEEfwcJU5uIiTLekBbPIb-ovKlgCwraiPeaLqIWcBLDPzFgXCKtCq0WXx5ajTPd7yOdydoZSP1TSib_qLDXn6D1GpuhTAgk-w/w35-h35-p-k-no-nu/agni.png)" lazied style={{ backgroundImage: 'url("//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1EwFaW4JRBIyt5ofXFLa75xEfbvLheYEEfwcJU5uIiTLekBbPIb-ovKlgCwraiPeaLqIWcBLDPzFgXCKtCq0WXx5ajTPd7yOdydoZSP1TSib_qLDXn6D1GpuhTAgk-w/w35-h35-p-k-no-nu/agni.png")' }}>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="cmIn">
+                                                                            <div className="cmBd" itemScope="itemscope" itemType="https://schema.org/Comment">
+                                                                                <div className="cmHr">
+                                                                                    <span className="n" itemProp="author" itemScope="itemscope" itemType="https://schema.org/Person">
+                                                                                        <bdi itemProp="name"> Abhishek kumar Mehta</bdi>
+                                                                                    </span>
+                                                                                    <span className="d dtTm" data-datetime="August 18, 2024 at 6:07 PM">second ago</span>
+                                                                                    <span className="d date" data-datetime="August 18, 2024 at 6:07 PM" itemProp="datePublished">August 18, 2024 at 6:07 PM</span>
+                                                                                </div>
+                                                                                <div className="cmCo" itemProp="text">
+                                                                                    Bsobs
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ol>
+                                                            </div>) : <></>}
+                                                        <div className={`cmAc ${comment.reply > 0 ? 'cmrp' : ''}`}>
+                                                            {user && cmntType === 'reply' && replyID === comment._id ? (
+                                                                <div className="cmFrm" id={"comment-reply"}>
+                                                                    <label htmlFor="addComment">Comment as {user}</label>
+                                                                    <textarea minLength={5} maxLength={250} name="addComment" id="addComment" cols="1" rows="1" />
+                                                                    <button className='button' role='button' onClick={() => submitComment(comment._id)}>Publish</button>
+                                                                </div>
+                                                            ) : (
+                                                                <a
+                                                                    aria-label="Reply"
+                                                                    className="rpTo"
+                                                                    onClick={() => { setReplyId(comment._id); setCmntType('reply') }}
+                                                                    data-text="Reply"
+                                                                    href="javascript:;"
+                                                                    target="_self"
+                                                                />
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 {user && data.user.role === 'admin' ? (
@@ -111,22 +170,22 @@ function Pcomment(props) {
                                             </li>
                                         )
                                     })}
-                                    <li className="c">
-                                        {user ? (
-                                            <div className="cmFrm" id="commentForm">
-                                                <label htmlFor="addComment">Comment as {user}</label>
-                                                <textarea minLength={5} maxLength={250} name="addComment" id="addComment" cols="1" rows="1" />
-                                                <button className='button' role='button' onClick={submitComment}>Publish</button>
-                                            </div>)
-                                            : (<div className="cmAd " id="addCm">
-                                                <div aria-label="Berkomentar" className="cmBtn button ln" role="button" onClick={login_toComment}>
-                                                    Post a Comment
-                                                </div>
-                                            </div>)
-                                        }
-                                    </li>
                                 </ol>
                             </div>
+                        </div>
+                        <div class="cmAd" id="addCm">
+                            {user && cmntType === 'comment' ? (
+                                <div className="cmFrm" id="commentForm">
+                                    <label htmlFor="addComment">Comment as {user}</label>
+                                    <textarea minLength={5} maxLength={250} name="addComment" id="addComment" cols="1" rows="1" />
+                                    <button className='button' role='button' onClick={submitComment}>Publish</button>
+                                </div>)
+                                : (<div className="cmAd " id="addCm">
+                                    <div aria-label="Berkomentar" className="cmBtn button ln" role="button" onClick={login_toComment}>
+                                        Post a Comment
+                                    </div>
+                                </div>)
+                            }
                         </div>
                     </div>
                 </div>
@@ -137,3 +196,5 @@ function Pcomment(props) {
     )
 }
 export default Pcomment;
+
+

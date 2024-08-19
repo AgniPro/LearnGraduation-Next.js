@@ -20,6 +20,7 @@ async function getPostData(skip,limit) {
 
 const RecentPosts = async ({limit,skip}) => {
     const postData = await getPostData(skip,limit);
+    if(postData.length === 0){ return <div>No Posts Found</div>}
     return (
         <div style={{ width: '380px' }}>
             <span className="aTtl">All Posts</span>
@@ -65,7 +66,8 @@ const RecentPosts = async ({limit,skip}) => {
                     </article>
                 )
             })}
-            <label>see all</label>
+            {postData.length === limit & limit>4 ? <div className="blogPg" id="blogPager"><button aria-label="Load more posts" id="loadmorepost" className="jsLd" data-text="Load more posts" /></div> : <></>
+            }
         </div>
     );
 };

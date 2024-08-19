@@ -45,7 +45,7 @@ const DeleteBtn = ({ itemId, itemType, postId ,setCcontent}) => {
     };
 
     return (
-        <label className={style.delpst} onClick={handleDelete}>
+        <label key={itemId} className={style.delpst} onClick={handleDelete}>
             🗑️
         </label>
     );

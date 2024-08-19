@@ -252,7 +252,7 @@ function Menu() {
                 <ToggleCheckbox htmlFor="offNav">
                   <Link
                     className="a"
-                    href="/mocktest"
+                    href=""
                     itemProp="url"
                   >
                     <svg className="line" viewBox="0 0 24 24">
@@ -285,7 +285,7 @@ function Menu() {
                 </li>
                 <li>
                 <ToggleCheckbox htmlFor="offNav">
-                  <Link
+                  <a
                     className="a"
                     href="https://learngraduation.blogspot.com/p/about-me.html"
                     itemProp="url"
@@ -301,11 +301,11 @@ function Menu() {
                     <span className="n" itemProp="name">
                       About
                     </span>
-                  </Link></ToggleCheckbox>
+                  </a></ToggleCheckbox>
                 </li>
                 <li className="br">
                 <ToggleCheckbox htmlFor="offNav">
-                  <Link
+                  <a
                     className="a"
                     href="https://learngraduation.blogspot.com/p/contact.html"
                     itemProp="url"
@@ -319,11 +319,11 @@ function Menu() {
                     <span className="n" itemProp="name">
                       Contact
                     </span>
-                  </Link></ToggleCheckbox>
+                  </a></ToggleCheckbox>
                 </li>
                 <li className="br">
                 <ToggleCheckbox htmlFor="offNav">
-                  <Link
+                  <a
                     className="a"
                     href="https://learngraduation.blogspot.com/p/become-creator.html"
                     itemProp="url"
@@ -336,11 +336,11 @@ function Menu() {
                     <span className="n" itemProp="name">
                       Become Creator
                     </span>
-                  </Link></ToggleCheckbox>
+                  </a></ToggleCheckbox>
                 </li>
                 <li className="br">
                 <ToggleCheckbox htmlFor="offNav">
-                  <Link
+                  <a
                     className="a"
                     href="https://www.linkedin.com/in/agnipro/"
                     itemProp="url"
@@ -353,7 +353,7 @@ function Menu() {
                     <span className="n" itemProp="name">
                       Hire Us
                     </span>
-                  </Link></ToggleCheckbox>
+                  </a></ToggleCheckbox>
                 </li>
                 <li className="drp mr br">
                   <input

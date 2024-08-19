@@ -14,10 +14,10 @@ const Page = async () => {
         </div>
         <div className="lb" itemProp="itemListElement" itemScope="itemscope" itemType="https://schema.org/ListItem">
           <Link href="/admin/all-posts" itemProp="item"><span itemProp="name">All Posts</span></Link>
-          <meta content={3} itemProp="position" />
+          <meta content={10} itemProp="position" />
         </div>
       </div><br />
-     <RecentPosts limit={10}/>
+     <RecentPosts limit={5}/>
     </>
 };
 export default Page;
