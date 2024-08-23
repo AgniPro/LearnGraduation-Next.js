@@ -78,8 +78,8 @@ export default async function Page({ params: { post } }) {
             <div className="pAd">
             </div>
             <div className="pEnt" id={postcontent._id}>
-              <div class="zmImg"><img alt={postcontent.title} class="fullImg"
-                src={postcontent.image} lazied={true} >
+              <div className="zmImg"><img alt={postcontent.title} className="fullImg"
+                src={postcontent.image} lazied="true" >
               </img></div>
               <div className="pS post-body postBody" id="postBody" dangerouslySetInnerHTML={{ __html: postcontent.content }} />
               <div className="pAd">

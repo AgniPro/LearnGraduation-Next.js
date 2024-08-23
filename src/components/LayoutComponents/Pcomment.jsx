@@ -117,7 +117,7 @@ function Pcomment(props) {
                                                     </div>
                                                     <input className="cmRi hidden" id={'to-' + comment._id} type="checkbox" />
                                                     <div className="cmRp">
-                                                        {comment.replies.length > 0 ? (
+                                                        {comment?.replies?.length > 0 ? (
                                                             <div className="cmTh" id={comment._id + 'replies'}>
                                                                 <label aria-label={`View ${comment.replies.length} replies`} className="thTg" data-text="Hide replies" htmlFor={'to-' + comment._id} />
                                                                 <ol className="thCh">
@@ -125,7 +125,7 @@ function Pcomment(props) {
                                                                         const { month } = date(rpComment?.createdAt, rpComment?.updatedAt);
                                                                         return (<li className="c" id={`c${rpComment._id}`}>
                                                                             <div className="cmAv">
-                                                                                <div className="im" data-style={`background-image: url(${rpComment.author?.avatar ? rpComment.author.avatar.url : avatarDefault.src})`} lazied style={{ backgroundImage: `url(${rpComment.author?.avatar ? rpComment.author.avatar.url : avatarDefault.src})` }}>
+                                                                                <div className="im" data-style={`background-image: url(${rpComment.author?.avatar ? rpComment.author.avatar.url : avatarDefault.src})`} lazied="true" style={{ backgroundImage: `url(${rpComment.author?.avatar ? rpComment.author.avatar.url : avatarDefault.src})` }}>
                                                                                 </div>
                                                                             </div>
                                                                             <div className="cmIn">
@@ -154,7 +154,7 @@ function Pcomment(props) {
                                                             <></>
                                                         )}
 
-                                                        <div className={`cmAc ${comment.replies.length > 0 ? 'cmR' : ''}`}>
+                                                        <div className={`cmAc ${comment?.replies?.length > 0 ? 'cmR' : ''}`}>
                                                             {user && cmntType === 'reply' && replyID === comment._id ? (
                                                                 <div className="cmFrm" id={"comment-reply"}>
                                                                     <label htmlFor="addComment">Comment as {user}</label>
@@ -184,7 +184,7 @@ function Pcomment(props) {
                                 </ol>
                             </div>
                         </div>
-                        <div class="cmAd" id="addCm">
+                        <div className="cmAd" id="addCm">
                             {user && cmntType === 'comment' ? (
                                 <div className="cmFrm" id="commentForm">
                                     <label htmlFor="addComment">Comment as {user}</label>
