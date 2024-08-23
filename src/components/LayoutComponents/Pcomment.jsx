@@ -117,33 +117,44 @@ function Pcomment(props) {
                                                     </div>
                                                     <input className="cmRi hidden" id={'to-' + comment._id} type="checkbox" />
                                                     <div className="cmRp">
-                                                        {comment.reply > 0 ? (
-                                                            <div className="cmTh" id={comment._id + "-rt"}>
-                                                                <label aria-label="View 2 replies" className="thTg" data-text="Hide replies" htmlFor={'to-' + comment._id} />
+                                                        {comment.replies.length > 0 ? (
+                                                            <div className="cmTh" id={comment._id + 'replies'}>
+                                                                <label aria-label={`View ${comment.replies.length} replies`} className="thTg" data-text="Hide replies" htmlFor={'to-' + comment._id} />
                                                                 <ol className="thCh">
-                                                                    <li className="c" id="c3297661718408759007">
-                                                                        <div className="cmAv">
-                                                                            <div className="im lazy loaded" data-style="background-image: url(//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1EwFaW4JRBIyt5ofXFLa75xEfbvLheYEEfwcJU5uIiTLekBbPIb-ovKlgCwraiPeaLqIWcBLDPzFgXCKtCq0WXx5ajTPd7yOdydoZSP1TSib_qLDXn6D1GpuhTAgk-w/w35-h35-p-k-no-nu/agni.png)" lazied style={{ backgroundImage: 'url("//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1EwFaW4JRBIyt5ofXFLa75xEfbvLheYEEfwcJU5uIiTLekBbPIb-ovKlgCwraiPeaLqIWcBLDPzFgXCKtCq0WXx5ajTPd7yOdydoZSP1TSib_qLDXn6D1GpuhTAgk-w/w35-h35-p-k-no-nu/agni.png")' }}>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div className="cmIn">
-                                                                            <div className="cmBd" itemScope="itemscope" itemType="https://schema.org/Comment">
-                                                                                <div className="cmHr">
-                                                                                    <span className="n" itemProp="author" itemScope="itemscope" itemType="https://schema.org/Person">
-                                                                                        <bdi itemProp="name"> Abhishek kumar Mehta</bdi>
-                                                                                    </span>
-                                                                                    <span className="d dtTm" data-datetime="August 18, 2024 at 6:07 PM">second ago</span>
-                                                                                    <span className="d date" data-datetime="August 18, 2024 at 6:07 PM" itemProp="datePublished">August 18, 2024 at 6:07 PM</span>
-                                                                                </div>
-                                                                                <div className="cmCo" itemProp="text">
-                                                                                    Bsobs
+                                                                    {comment.replies.map(rpComment => {
+                                                                        const { month } = date(rpComment?.createdAt, rpComment?.updatedAt);
+                                                                        return (<li className="c" id={`c${rpComment._id}`}>
+                                                                            <div className="cmAv">
+                                                                                <div className="im" data-style={`background-image: url(${rpComment.author?.avatar ? rpComment.author.avatar.url : avatarDefault.src})`} lazied style={{ backgroundImage: `url(${rpComment.author?.avatar ? rpComment.author.avatar.url : avatarDefault.src})` }}>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </li>
+                                                                            <div className="cmIn">
+                                                                                <div className="cmBd" itemScope="itemscope" itemType="https://schema.org/Comment">
+                                                                                    <div className="cmHr">
+                                                                                        <span className="n" itemProp="author" itemScope="itemscope" itemType="https://schema.org/Person">
+                                                                                            <bdi itemProp="name">{rpComment.author?.name? rpComment.author.name : "Unknown"} {rpComment.author?.role === 'admin' ? '✅' : ''}</bdi>
+                                                                                        </span>
+                                                                                        <span className="d dtTm" data-datetime={new Date(rpComment?.updatedAt).toISOString()}>{month}</span>
+                                                                                    </div>
+                                                                                    <div className="cmCo" itemProp="text">
+                                                                                        {rpComment.content}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            {user && data.user.role === 'admin' ? (
+                                                                                <label className="cmAv" style={{ right: '12px', left: 'unset' }}>
+                                                                                    <DeleteBtn setCcontent={setCcontent} commentId={comment._id} replyId={rpComment._id} itemType="reply" postId={props.pcomment._id} />
+                                                                                </label>) : ''}
+                                                                        </li>
+                                                                        )
+                                                                    })}
                                                                 </ol>
-                                                            </div>) : <></>}
-                                                        <div className={`cmAc ${comment.reply > 0 ? 'cmrp' : ''}`}>
+                                                            </div>
+                                                        ) : (
+                                                            <></>
+                                                        )}
+
+                                                        <div className={`cmAc ${comment.replies.length > 0 ? 'cmR' : ''}`}>
                                                             {user && cmntType === 'reply' && replyID === comment._id ? (
                                                                 <div className="cmFrm" id={"comment-reply"}>
                                                                     <label htmlFor="addComment">Comment as {user}</label>
@@ -165,7 +176,7 @@ function Pcomment(props) {
                                                 </div>
                                                 {user && data.user.role === 'admin' ? (
                                                     <label className="cmAv" style={{ right: '12px', left: 'unset' }}>
-                                                        <DeleteBtn setCcontent={setCcontent} itemId={comment._id} itemType="comment" postId={props.pcomment._id} />
+                                                        <DeleteBtn setCcontent={setCcontent} commentId={comment._id} itemType="comment" postId={props.pcomment._id} />
                                                     </label>) : ''}
                                             </li>
                                         )

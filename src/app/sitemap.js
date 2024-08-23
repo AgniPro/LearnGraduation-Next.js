@@ -11,7 +11,7 @@ export default async function sitemap() {
 
     return [
         {
-            url: `${process.env.NEXT_PUBLIC_URL}/about`,
+            url: `${process.env.NEXT_PUBLIC_URL}/`,
             lastModified: new Date().toISOString(),
         },
         ...postEntries,

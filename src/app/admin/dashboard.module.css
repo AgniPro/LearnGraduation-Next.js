@@ -47,3 +47,11 @@ a.ttle {
   max-width: 85%;
   display: block;
 }
+
+select.list {
+    background: transparent;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+}

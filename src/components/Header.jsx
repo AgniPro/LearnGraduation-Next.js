@@ -1,10 +1,7 @@
 import Link from "next/link";
 import ThemeSwitcher from "../utils/ThemeSwitcher";
 import HeaderProfile from "./LayoutComponents/HeaderProfile";
-
-
 const Header = () => {
-
     return (
         <header className="header" id="header">
             {/*[ Header content ]*/}
@@ -135,7 +132,6 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
         </header>
     );
 };

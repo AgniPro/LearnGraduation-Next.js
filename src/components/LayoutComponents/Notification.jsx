@@ -10,7 +10,7 @@ function Notification(){
       <div className="ntfT">
         <div className="ntfA">
           <span>
-            Download LearnGraduation Android App Now
+            Download Learn Graduation Android App Now
           </span>
           <a href="https://drive.google.com/uc?id=1Hp4fKp8lN2Iikx63EF3CBUDTzST7IKpj">Get now!</a>
         </div>

@@ -25,11 +25,3 @@ const Page = async () => {
   );
 };
 export default Page;
-
-export async function generateMetadata({ params: { post } }) {
-  return {
-    title: `Admin Dashboard | LearnGraduation`,
-    description: `Admin Dashboard`,
-    keywords: `Admin Dashboard`,
-  };
-}

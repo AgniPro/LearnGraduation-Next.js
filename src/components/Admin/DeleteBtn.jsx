@@ -4,7 +4,7 @@ import style from '../../app/admin/dashboard.module.css';
 import { api } from '@/app/Contexts';
 import toast from 'react-hot-toast';
 
-const DeleteBtn = ({ itemId, itemType, postId ,setCcontent}) => {
+const DeleteBtn = ({itemType, postId, commentId, setCcontent,replyId }) => {
     const handleDelete = () => {
         const confirmMessage = `Are you sure you want to delete this ${itemType}?`;
         if (!confirm(confirmMessage)) return;
@@ -16,7 +16,9 @@ const DeleteBtn = ({ itemId, itemType, postId ,setCcontent}) => {
         if (itemType === 'post') {
             url = `${api}/api/delete-post?pId=${postId}`;
         } else if (itemType === 'comment') {
-            url = `${api}/api/p/${postId}/comment/${itemId}`;
+            url = `${api}/api/p/${postId}/comment/${commentId}`;
+        } else if (itemType === 'reply') {
+            url = `${api}/api/p/${postId}/comment/${commentId}/reply/${replyId}`;
         }
         fetch(url, {
             method: 'DELETE',
@@ -34,7 +36,20 @@ const DeleteBtn = ({ itemId, itemType, postId ,setCcontent}) => {
                     }, 1000); // 1000 milliseconds = 1 second
                 }
                 if (itemType === 'comment') {
-                    setCcontent((prev) => prev.filter((item) => item._id !== itemId));
+                    setCcontent((prev) => prev.filter((item) => item._id !== commentId));
+                }
+                if (itemType === 'reply') {
+                    setCcontent((prev) => {
+                        return prev.map((comment) => {
+                            if (comment._id === commentId) {
+                                return {
+                                    ...comment,
+                                    replies: comment.replies.filter((reply) => reply._id !== replyId),
+                                };
+                            }
+                            return comment;
+                        });
+                    });
                 }
             } else {
                 toast.error(`Failed to delete ${itemType}`);
@@ -45,7 +60,7 @@ const DeleteBtn = ({ itemId, itemType, postId ,setCcontent}) => {
     };
 
     return (
-        <label key={itemId} className={style.delpst} onClick={handleDelete}>
+        <label key={postId} className={style.delpst} onClick={handleDelete}>
             🗑️
         </label>
     );

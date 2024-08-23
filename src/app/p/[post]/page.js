@@ -65,7 +65,7 @@ export default async function Page({ params: { post } }) {
             <div className="pCm">
               <div className="pIc" >
                 <Like postId={postcontent._id} postLikes={postcontent.likes} />
-                <label className="cmnt tIc" data-text={postcontent.comments?.length} htmlFor="forComments">
+                <label className="cmnt tIc" data-text={postcontent.comments.length + postcontent.comments.reduce((acc, comment) => acc + (comment.replies ? comment.replies.length : 0), 0)}htmlFor="forComments">
                   <svg className="line" viewBox="0 0 24 24"><g transform="translate(2.000000, 2.000000)"><path d="M17.0710351,17.0698449 C14.0159481,20.1263505 9.48959549,20.7867004 5.78630747,19.074012 C5.23960769,18.8538953 1.70113357,19.8338667 0.933341969,19.0669763 C0.165550368,18.2990808 1.14639409,14.7601278 0.926307229,14.213354 C-0.787154393,10.5105699 -0.125888852,5.98259958 2.93020311,2.9270991 C6.83146881,-0.9756997 13.1697694,-0.9756997 17.0710351,2.9270991 C20.9803405,6.8359285 20.9723008,13.1680512 17.0710351,17.0698449 Z"></path></g></svg>
                 </label>
                 <label className="sh tIc" htmlFor="forShare">

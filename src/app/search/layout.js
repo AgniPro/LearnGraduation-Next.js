@@ -7,7 +7,7 @@ const SearchLayout = ({ children }) => {
     return (
         <>
         <Menu />
-            <div className="blogCont onItm onPg">
+            <div className="blogCont oneGrd MN-2 mobS hdMn bD onIndx onMlt">
                 <div className="secIn">
                     <Notification />
                     <div className="blogM">

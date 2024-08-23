@@ -6,10 +6,10 @@ import Head from "next/head";
 
 export const metadata = {
   title: {
-    template: '%s | LearnGraduation',
-    default: 'LearnGraduation',
+    template: '%s | Learn Graduation',
+    default: 'Learn Graduation',
   },
-  description: 'LearnGraduation is owned and dev. by AgniPro',
+  description: 'Learn Graduation is owned and dev. by AgniPro',
   keywords: 'learnGraduation, AgniPro,learn graduation, under graduate , vbu ug , vbu graduation, vbu new syllabus, vbu FYUGP syllabus,VBU previous year question paper, vbu notes',
   verification: {
     google: `${process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}`,
@@ -22,9 +22,14 @@ export const metadata = {
   images: [
     {
       url: `https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFI8coJMerfzB4fU1QjX_bkx2EdOAMG16Ds5GaXaMhAxm3cOj36PEIyamcyR6v_kcyq0y5lYPsJuKJg6k_Y-NiQSbJdQk4t-kD-lL1ejSftzDdLTR0fjpY1PhlagoJPs8xnlc-yWs2KT5fTms__kJ4TptRsdwsqBX-8eT6z91oIteGaeMA04JFjl3p/s1600/learnbanner.png`,
-      alt: `LearnGraduation`,
+      alt: `Learn Graduation`,
     },
-  ],},
+  
+  ],
+  type: 'website',
+  locale: 'en_US',
+  siteName: 'Learn Graduation',
+},
   alternates: {
     canonical: "/",
   },

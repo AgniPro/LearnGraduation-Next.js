@@ -9,7 +9,7 @@ const CustomModal = ({
 <div className="shBr fixL">
   <div className="shBri fixLi">
     <div className="shBrs fixLs">
-      <div className="shH fixH fixT" data-text={route+" to LearnGraduation"}>
+      <div className="shH fixH fixT" data-text={route+" to Learn Graduation"}>
         <label aria-label="Close" className="c cl" htmlFor="forAuth" onClick={() => setOpen(!open)} />
       </div>
       <Component setOpen={setOpen} setRoute={setRoute} />
