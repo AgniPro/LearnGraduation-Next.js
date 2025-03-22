@@ -17,7 +17,7 @@ const Page = async () => {
           <meta content={10} itemProp="position" />
         </div>
       </div><br />
-     <RecentPosts limit={5}/>
+     <RecentPosts limit={10}/>
     </>
 };
 export default Page;
