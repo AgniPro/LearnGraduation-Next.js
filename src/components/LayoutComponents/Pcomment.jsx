@@ -5,12 +5,14 @@ import toast from 'react-hot-toast';
 import avatarDefault from "../../../public/assets/avatar.png";
 import { useGetUserQuery } from '@/lib/services/auth';
 import DeleteBtn from '../Admin/DeleteBtn';
+import { Verified } from '../Svg/SvgIcons';
 
 function Pcomment(props) {
     const { data, refetch, isSuccess, error } = useGetUserQuery();
     const [user, setUser] = useState("");
     const [cmntType, setCmntType] = useState('reply');
     const [replyID, setReplyId] = useState('');
+    const [loading,setLoading]= useState(false);
     useEffect(() => {
         if (data && isSuccess) {
             setUser(data.user.name);
@@ -31,6 +33,7 @@ function Pcomment(props) {
             toast.error('Write something to comment');
             return;
         }
+        setLoading(true); 
         try {
             const endpoint = cmntType === 'reply'
                 ? `${api}/api/p/${props.pcomment._id}/comment/${replyToId}/reply`
@@ -48,13 +51,16 @@ function Pcomment(props) {
             const data = await response.json();
             if (response.ok) {
                 toast.success("Comment posted");
+                setLoading(false);
                 setCcontent(data.comments);
                 document.getElementById('addComment').value = "";
             } else {
                 toast.error(data.message || "Please try again later");
+                setLoading(false);
             }
         } catch (error) {
             toast.error("Something went wrong");
+            setLoading(false);
         }
     };
 
@@ -105,7 +111,7 @@ function Pcomment(props) {
                                                         <div className="cmHr">
                                                             <span className="n" itemProp="author" itemScope='true' itemType="https://schema.org/Person">
                                                                 <bdi itemProp="name">
-                                                                    {comment.author?.name ? comment.author.name : "Unknown"} {comment.author?.role === 'admin' ? '✅' : ''}
+                                                                    {comment.author?.name ? comment.author.name : "Unknown"} {comment.author?.role === 'admin' ? <Verified/> : ''}
                                                                 </bdi>
                                                             </span>
                                                             <span className="d dtTm" data-datetime={new Date(comment?.createdAt).toISOString()} content={new Date(comment?.createdAt).toISOString()} itemprop="datePublished">&#183; {month}</span>
@@ -132,7 +138,7 @@ function Pcomment(props) {
                                                                                 <div className="cmBd" itemScope="itemscope" itemType="https://schema.org/Comment">
                                                                                     <div className="cmHr">
                                                                                         <span className="n" itemProp="author" itemScope="itemscope" itemType="https://schema.org/Person">
-                                                                                            <bdi itemProp="name">{rpComment.author?.name? rpComment.author.name : "Unknown"} {rpComment.author?.role === 'admin' ? '✅' : ''}</bdi>
+                                                                                            <bdi itemProp="name">{rpComment.author?.name? rpComment.author.name : "Unknown"} {rpComment.author?.role === 'admin' ? <Verified/> : ''}</bdi>
                                                                                         </span>
                                                                                         <span className="d dtTm" data-datetime={new Date(rpComment?.updatedAt).toISOString()}>{month}</span>
                                                                                     </div>
@@ -159,7 +165,7 @@ function Pcomment(props) {
                                                                 <div className="cmFrm" id={"comment-reply"}>
                                                                     <label htmlFor="addComment">Comment as {user}</label>
                                                                     <textarea minLength={5} maxLength={250} name="addComment" id="addComment" cols="1" rows="1" />
-                                                                    <button className='button' role='button' onClick={() => submitComment(comment._id)}>Publish</button>
+                                                                    <button className='button' role='button' onClick={() => submitComment(comment._id)} loading={loading}>{loading ? 'Publishing...' : 'Publish'}</button>
                                                                 </div>
                                                             ) : (
                                                                 <a
@@ -189,7 +195,7 @@ function Pcomment(props) {
                                 <div className="cmFrm" id="commentForm">
                                     <label htmlFor="addComment">Comment as {user}</label>
                                     <textarea minLength={5} maxLength={250} name="addComment" id="addComment" cols="1" rows="1" />
-                                    <button className='button' role='button' onClick={submitComment}>Publish</button>
+                                    <button className='button' role='button' onClick={submitComment} loading={loading}>{loading ? 'Publishing...' : 'Publish'}</button>
                                 </div>)
                                 : (<div className="cmAd " id="addCm">
                                     <div aria-label="Berkomentar" className="cmBtn button ln" role="button" onClick={login_toComment}>
