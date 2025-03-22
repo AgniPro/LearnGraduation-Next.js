@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import Toc from "./Toc";
-import BookMark from "../Svg/BookMark";
 import PopularPost from "./PopularPost";
+import { BookMark } from "../Svg/SvgIcons";
 
 export default function Sidebar() {
   const labels = [{ title: "Under Graduatie", noP: 36 },
