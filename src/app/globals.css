@@ -2984,10 +2984,10 @@
     margin-bottom: 20px;
   }
   
-  .cm iframe {
-    width: 100%;
+  .n svg {
+    width: 15px;
+    height: 15px;
   }
-  
   .cm:not(.cmBr) .cmBrs {
     background: transparent;
     position: relative;
