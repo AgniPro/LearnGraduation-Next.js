@@ -59,6 +59,7 @@ const RecentPosts = async ({limit,skip}) => {
                             </h2>
                             <div className="pInf pSml">
                                 <time className="aTtmp pTtmp pbl" data-text={`${month}, ${year}`} dateTime={item.updatedAt} title={`${pubinfo} ${month}, ${year}`} />
+                                <label className="aTtmp pTtmp pbl" data-text={`👁️${item.views}`} title={`Views: ${item.views}`}/>
                                 <Link aria-label="Edit ✏️" className="pJmp" data-text="Edit" href={"/admin/edit-post?purl=" + item.url}></Link>
                             </div>
                         </div>
@@ -66,8 +67,7 @@ const RecentPosts = async ({limit,skip}) => {
                     </article>
                 )
             })}
-            {postData.length === limit & limit>4 ? <div className="blogPg" id="blogPager"><button aria-label="Load more posts" id="loadmorepost" className="jsLd" data-text="Load more posts" /></div> : <></>
-            }
+           
         </div>
     );
 };
