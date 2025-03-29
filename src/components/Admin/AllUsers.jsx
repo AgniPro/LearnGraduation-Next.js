@@ -3,21 +3,27 @@ import { useGetAllUserQuery } from '@/lib/services/auth';
 import avatarDefault from '../../../public/assets/avatar.png';
 import style from '../../app/admin/dashboard.module.css';
 import { date } from '@/app/Contexts';
+import { useState } from 'react';
 
 
 const AllUsers = () => {
     let allUsers;
+    const [showAll, setShowAll] = useState(false);
     const { data, isSuccess, error } = useGetAllUserQuery();
     if (isSuccess) {
         allUsers = data.users;
     }
+    const handleSeeAll = () => {
+        setShowAll(true);
+      };
+    const usersToDisplay = showAll ? allUsers : allUsers?.slice(0, 6);
     return (
         <div>
             {allUsers ? <span>All Users</span> : <p>Loading...</p>}
             <div className={style.userCn + ' cmCn'}>
                 <br />
                 <ol className="cmHl" id="cmHolder">
-                    {allUsers?.map((user) => {
+                    {usersToDisplay?.map((user) => {
                         const { month } = date(user.createdAt, user.lastActive);
                         return (
                             <li className="c" key={user._id} id={user._id}>
@@ -45,7 +51,14 @@ const AllUsers = () => {
                     }
                     )}
                 </ol>
-                see all
+                {!showAll && allUsers?.length >6 && (
+                    <button
+                        className='jsLd'
+                        onClick={handleSeeAll}
+                    >
+                        See All
+                    </button>
+                )}
             </div>
         </div>
     )
